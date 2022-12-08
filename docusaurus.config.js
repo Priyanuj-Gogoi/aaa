@@ -10,7 +10,7 @@ module.exports = {
 	onBrokenMarkdownLinks: 'warn',
 	onDuplicateRoutes: 'warn',
 	favicon: 'img/favicon.ico',
-	organizationName: 'Priyanuj Gogoi', // Change
+	organizationName: 'Priyanuj-Gogoi', // Change
 	projectName: 'aaa', // Change
 	trailingSlash: false,
 	noIndex: true,
