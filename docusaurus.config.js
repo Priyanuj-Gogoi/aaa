@@ -4,7 +4,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
 	title: 'My Site',
 	url: 'https://priyanuj-gogoi.github.io',
-  baseUrl: '/',
+  baseUrl: '/aaa/',
   favicon: 'img/favicon/favicon.ico',
 	trailingSlash: false,
   i18n: {
