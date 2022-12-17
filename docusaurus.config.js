@@ -27,7 +27,6 @@ module.exports = {
 	tagline: 'Dinosaurs are cool',
 	organizationName: 'priyanuj-gogoi',
 	projectName: 'aaa',
-  deploymentBranch: 'gh-pages',
 	themeConfig: {
     docs: {
       sidebar: {
