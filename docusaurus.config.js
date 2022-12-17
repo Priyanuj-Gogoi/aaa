@@ -3,65 +3,148 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 module.exports = {
 	title: 'My Site',
-	tagline: 'Dinosaurs are cool',
-	url: 'https://priyanuj-gogoi.github.io', // Change
-	baseUrl: '/aaa/', // Change
+	url: 'https://priyanuj-gogoi.github.io',
+  baseUrl: '/',
+  favicon: 'img/favicon/favicon.ico',
+	trailingSlash: false,
+  i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'fr', 'fa'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en'
+      },
+      fa: { direction: 'rtl' }
+    }
+	}, 
+	noIndex: true,
+  markdown: { mermaid: true },
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
 	onDuplicateRoutes: 'warn',
-	favicon: 'img/favicon.ico',
-	organizationName: 'Priyanuj-Gogoi', // Change
-	projectName: 'aaa', // Change
-	trailingSlash: false,
-	noIndex: true,
-	i18n: {
-		defaultLocale: 'en',
-		locales: ['en'],
-	},
-	presets: [
-		[
-			'classic',
-			({
-				docs: {
-					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/priyanuj-gogoi/aaa/edit/master/', // Change
-					routeBasePath: '/',
-					showLastUpdateTime: true,
-					showLastUpdateAuthor: true
+	tagline: 'Dinosaurs are cool',
+	organizationName: 'priyanuj-gogoi',
+	projectName: 'aaa',
+  deploymentBranch: 'gh-pages',
+	themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true
+      }
+    },
+    colorMode: { defaultMode: 'dark' },
+    image: 'img/assets/bdfd.png',
+    navbar: {
+      title: 'Bot Designer For Discord',
+      logo: {
+        alt: 'BDFD Logo',
+			  src: 'img/logo.svg'
+      },
+			items: [
+        {
+          type: 'doc',
+					docId: 'intro',
+					position: 'left',
+					label: 'Tutorial',
 				},
-				blog: false,
-				theme: {
-					customCss: require.resolve('./src/css/custom.css'),
-				},
-			}),
-		],
-	],
-	themeConfig:
-		({
-			navbar: {
-				title: 'My Site',
-				logo: {
-					alt: 'My Site Logo',
-					src: 'img/logo.svg',
-				},
-				hideOnScroll: true,
-				items: [
-					{
-						type: 'doc',
-						docId: 'intro',
-						position: 'left',
-						label: 'Tutorial',
-					},
-					{
-						href: 'https://github.com/facebook/docusaurus',
-						label: 'GitHub',
-						position: 'right',
-					},
-				],
-			},
-			prism: {
-				theme: lightCodeTheme,
-				darkTheme: darkCodeTheme,
-			},
-		}),
-};
+        { type: 'localeDropdown', position: 'right' },
+				{
+					href: 'https://github.com/priyanuj-gogoi/aaa',
+					position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub',
+				}
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Community',
+          items: [
+            { label: 'Discord', href: 'https://discord.com/servers/bot-designer-for-discord-official-server-566363823137882154' },
+            { label: 'Reddit', href: 'https://reddit.com/r/DiscordBotDesigner' }
+          ]
+        },
+        {
+          title: 'External Links',
+          items: [
+            { label: 'Web App', href: 'https://botdesignerdiscord.com/app' },
+            { label: 'Android App', href: 'https://play.google.com/store/apps/details?id=com.jakubtomana.discordbotdesinger' },
+            { label: 'iOS App', href: 'https://apps.apple.com/us/app/bot-designer-for-discord/id1495536477' }
+          ]
+        }
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} NilPointer Software<br>Powered by Docusaurus`
+    },
+    hideOnScroll: true,
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: { start: 'highlight-start', end: 'highlight-end' }
+        },
+        {
+          className: 'code-block-error-line',
+          line: 'error-next-line',
+          block: { start: 'error-start', end: 'error-end' }
+        },
+      ]
+    },
+    metadata: [
+      { name: 'keywords', content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs' },
+      { name: 'application-name', content: 'BDFD Wiki' },
+      { name: 'apple-mobile-web-app-title', content: 'BDFD Wiki' }
+    ],
+    headTags: [
+      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png'}},
+			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: './img/favicon-32x32.png'}},
+			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: './img/android-chrome-192x192.png'}},
+			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: './img/favicon-16x16.png'}},
+    ]
+  },
+  themes: [ '@docusaurus/theme-mermaid' ],
+  plugins: [
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        offlineModeActivationStrategies: [
+          'appInstalled', 'queryString', 'standalone', 'saveData'
+        ],
+        pwaHead: [
+          { tagName: 'link', rel: 'icon', href: 'img/' },
+          { tagName: 'link', rel: 'manifest', href: 'manifest.json' },
+          { tagName: 'link', rel: 'apple-touch-icon', href: 'img/apple-touch-icon.png' },
+          { tagName: 'link', rel: 'mask-icon', href: 'img/safari-pinned-tab.svg', color: '#748ad5' },
+          { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
+          { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
+          { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
+          { tagName: 'meta', name: 'msapplication-TileImage', content: 'img/mstile-144x144.png' },
+          { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5'}
+        ]
+      }
+    ]
+  ],
+  presets: [
+    [
+      'classic',
+      {
+        debug: true,
+        docs: {
+          editUrl: 'https://github.com/priyanuj-gogoi/aaa/edit/main/',
+          routeBasePath: '/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
+        },
+        blog: false,
+        theme: { customCss: 'src/css/custom.css' },
+      },
+    ],
+  ],
+}
