@@ -1,61 +1,41 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const config = {
+  title: 'BDFD Wiki',
+  description: 'Soon...Rewriting',
+  user: 'priyanuj-gogoi',
+  repo: 'aaa',
+  branch: 'main'
+};
+
 module.exports = {
-	title: 'My Site',
-	url: 'https://priyanuj-gogoi.github.io',
-  baseUrl: '/aaa/',
-  favicon: 'img/favicon/favicon.ico',
+	title: config.title,
+  url: `https://${config.user}.github.io`,
+  baseUrl: `/${config.repo}/`,
+  favicon: 'img/favicon.ico',
 	trailingSlash: false,
-  i18n: {
-		defaultLocale: 'en',
-		locales: ['en', 'fr', 'fa'],
-    localeConfigs: {
-      en: {
-        htmlLang: 'en-US',
-        calendar: 'gregory',
-        path: 'en'
-      },
-      fa: { direction: 'rtl' }
-    }
-	}, 
 	noIndex: true,
   markdown: { mermaid: true },
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
 	onDuplicateRoutes: 'warn',
 	tagline: 'Dinosaurs are cool',
-	organizationName: 'priyanuj-gogoi',
-	projectName: 'aaa',
+  organizationName: config.user,
+	projectName: config.repo,
 	themeConfig: {
     docs: {
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: true
-      }
+      sidebar: { hideable: true, autoCollapseCategories: true }
     },
     colorMode: { defaultMode: 'dark' },
     image: 'img/assets/bdfd.png',
     navbar: {
       title: 'Bot Designer For Discord',
-      logo: {
-        alt: 'BDFD Logo',
-			  src: 'img/logo.svg'
-      },
+      logo: { alt: 'BDFD Logo', src: 'img/logo.svg' },
 			items: [
-        {
-          type: 'doc',
-					docId: 'intro',
-					position: 'left',
-					label: 'Tutorial',
-				},
+        { type: 'doc', docId: 'intro', position: 'left', label: 'Tutorial' },
         { type: 'localeDropdown', position: 'right' },
-				{
-					href: 'https://github.com/priyanuj-gogoi/aaa',
-					position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub',
-				}
+				{ href: `https://github.com/${config.user}/${config.repo}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
       ],
     },
     footer: {
@@ -99,14 +79,33 @@ module.exports = {
     metadata: [
       { name: 'keywords', content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs' },
       { name: 'application-name', content: 'BDFD Wiki' },
-      { name: 'apple-mobile-web-app-title', content: 'BDFD Wiki' }
+      { name: 'apple-mobile-web-app-title', content: 'BDFD Wiki' },
+
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:site', content: '@NilPointer-Software' },
+      { name: 'twitter:title', content: config.title },
+      { name: 'twitter:description', content: config.description },
+      { name: 'twitter:url', content: `https://${config.user}.github.io/${config.repo}/` },
+
+      { name: 'og:type', content: 'website' },
+      { name: 'og:title', content: config.title },
+      { name: 'og:description', content: config.description },
+      { name: 'og:url', content: `https://${config.user}.github.io/${config.repo}/` },
+      { name: 'og:site_name', content: config.title },
+
+      { name: 'title', content: config.title },
+      { name: 'description', content: config.description }
     ],
     headTags: [
       { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png'}},
 			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: './img/favicon-32x32.png'}},
 			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: './img/android-chrome-192x192.png'}},
 			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: './img/favicon-16x16.png'}},
-    ]
+    ],
+    announcementBar: {
+      id: 'announcement-bar',
+      content: `Give a 🌟 on our <a target="_blank" href="https://github.com/${config.user}/${config.repo}">GitHub</a>, if you liked the new docs!`
+    }
   },
   themes: [ '@docusaurus/theme-mermaid' ],
   plugins: [
@@ -146,4 +145,5 @@ module.exports = {
       },
     ],
   ],
+  titleDelimiter: '-'
 }

@@ -20,6 +20,11 @@ graph TD;
     C-->D;
 ```
 
+```js
+// highlight-next-line
+console.log(true)
+```
+
 ### What you'll need
 
 - [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
