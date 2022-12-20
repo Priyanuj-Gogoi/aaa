@@ -17,6 +17,7 @@ module.exports = {
 	trailingSlash: false,
 	noIndex: true,
   markdown: { mermaid: true },
+    onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'throw',
 	onDuplicateRoutes: 'throw',
 	tagline: 'Dinosaurs are cool',
