@@ -17,9 +17,8 @@ module.exports = {
 	trailingSlash: false,
 	noIndex: true,
   markdown: { mermaid: true },
-	onBrokenLinks: 'warn',
-	onBrokenMarkdownLinks: 'warn',
-	onDuplicateRoutes: 'warn',
+	onBrokenMarkdownLinks: 'throw',
+	onDuplicateRoutes: 'throw',
 	tagline: 'Dinosaurs are cool',
   organizationName: config.user,
 	projectName: config.repo,
@@ -33,7 +32,7 @@ module.exports = {
       title: 'Bot Designer For Discord',
       logo: { alt: 'BDFD Logo', src: 'img/logo.svg' },
 			items: [
-        { type: 'doc', docId: 'intro', position: 'left', label: 'Tutorial' },
+        { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
         { type: 'localeDropdown', position: 'right' },
 				{ href: `https://github.com/${config.user}/${config.repo}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
       ],
@@ -57,7 +56,7 @@ module.exports = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} NilPointer Software<br>Powered by Docusaurus`
+      copyright: `Copyright © ${new Date().getFullYear()} <a target="_blank" href="https://nilpointer.software" title="NilPointer Software">NilPointer Software</a><br>Powered by <a target="_blank" href="https://docusaurus.io">Docusaurus</a>`
     },
     hideOnScroll: true,
     prism: {
