@@ -1,29 +1,25 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const config = {
-  title: 'BDFD Wiki',
-  description: 'Soon...Rewriting',
-  user: 'priyanuj-gogoi',
-  repo: 'aaa',
-  branch: 'main'
-};
+const {
+  title, description, user, repo, branch,
+} = require('./wiki.config');
 
 module.exports = {
-	title: config.title,
-  url: `https://${config.user}.github.io`,
-  baseUrl: `/${config.repo}/`,
+  title: title,
+  url: `https://${user}.github.io`,
+  baseUrl: `/${repo}/`,
   favicon: 'img/favicon.ico',
-	trailingSlash: false,
-	noIndex: true,
+  trailingSlash: false,
+  noIndex: true,
   markdown: { mermaid: true },
-    onBrokenLinks: 'warn',
-	onBrokenMarkdownLinks: 'throw',
-	onDuplicateRoutes: 'throw',
-	tagline: 'Dinosaurs are cool',
-  organizationName: config.user,
-	projectName: config.repo,
-	themeConfig: {
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
+  onDuplicateRoutes: 'throw',
+  tagline: 'Dinosaurs are cool',
+  organizationName: user,
+  projectName: repo,
+  themeConfig: {
     docs: {
       sidebar: { hideable: true, autoCollapseCategories: true }
     },
@@ -32,10 +28,10 @@ module.exports = {
     navbar: {
       title: 'Bot Designer For Discord',
       logo: { alt: 'BDFD Logo', src: 'img/logo.svg' },
-			items: [
+      items: [
         { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
         { type: 'localeDropdown', position: 'right' },
-				{ href: `https://github.com/${config.user}/${config.repo}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
+        { href: `https://github.com/${user}/${repo}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
       ],
     },
     footer: {
@@ -82,33 +78,32 @@ module.exports = {
       { name: 'apple-mobile-web-app-title', content: 'BDFD Wiki' },
 
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:site', content: '@NilPointer-Software' },
-      { name: 'twitter:title', content: config.title },
-      { name: 'twitter:description', content: config.description },
-      { name: 'twitter:url', content: `https://${config.user}.github.io/${config.repo}/` },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:url', content: `https://${user}.github.io/${repo}/` },
 
       { name: 'og:type', content: 'website' },
-      { name: 'og:title', content: config.title },
-      { name: 'og:description', content: config.description },
-      { name: 'og:url', content: `https://${config.user}.github.io/${config.repo}/` },
-      { name: 'og:site_name', content: config.title },
+      { name: 'og:title', content: title },
+      { name: 'og:description', content: description },
+      { name: 'og:url', content: `https://${user}.github.io/${repo}/` },
 
-      { name: 'title', content: config.title },
-      { name: 'description', content: config.description }
+      { name: 'title', content: title },
+      { name: 'description', content: description }
     ],
     headTags: [
-      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png'}},
-			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: './img/favicon-32x32.png'}},
-			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: './img/android-chrome-192x192.png'}},
-			{ tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: './img/favicon-16x16.png'}},
+      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: './img/favicon-32x32.png' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: './img/android-chrome-192x192.png' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: './img/favicon-16x16.png' } },
     ],
     announcementBar: {
       id: 'announcement-bar',
-      content: `Give a 🌟 on our <a target="_blank" href="https://github.com/${config.user}/${config.repo}">GitHub</a>, if you liked the new docs!`
+      content: `Give a 🌟 on our <a target="_blank" href="https://github.com/${user}/${repo}">GitHub</a>, if you liked the new docs!`
     }
   },
-  themes: [ '@docusaurus/theme-mermaid' ],
+  themes: ['@docusaurus/theme-mermaid'],
   plugins: [
+    'plugin-image-zoom',
     [
       '@docusaurus/plugin-pwa',
       {
@@ -124,7 +119,7 @@ module.exports = {
           { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
           { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
           { tagName: 'meta', name: 'msapplication-TileImage', content: 'img/mstile-144x144.png' },
-          { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5'}
+          { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5' }
         ]
       }
     ]
@@ -135,7 +130,7 @@ module.exports = {
       {
         debug: true,
         docs: {
-          editUrl: 'https://github.com/priyanuj-gogoi/aaa/edit/main/',
+          editUrl: `https://github.com/${user}/${repo}/edit/${branch}/`,
           routeBasePath: '/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
