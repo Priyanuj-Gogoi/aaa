@@ -5,10 +5,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: redkubes/docusaurus-deploy-action@v1.2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.5.1
         with:
-          source-folder: docs
-          git-user: ${{ github.event.head_commit.author.username }}
-          git-password: ${{ secrets.TOKEN }}
-          deployment-branch: gh-pages
+          node-version: latest
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy to GitHub Pages
+        run: GIT_USER=${{ github.event.head_commit.author.username }} docusaurus deploy

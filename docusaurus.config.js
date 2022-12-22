@@ -27,7 +27,11 @@ module.exports = {
     image: 'img/assets/bdfd.png',
     navbar: {
       title: 'Bot Designer For Discord',
-      logo: { alt: 'BDFD Logo', src: 'img/logo.svg' },
+      logo: {
+        alt: 'BDFD Logo',
+        src: 'img/assets/bdfd.png',
+        srcDark: 'img/assets/bdfd-transparent.png'
+      },
       items: [
         { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
         { type: 'localeDropdown', position: 'right' },
@@ -73,6 +77,8 @@ module.exports = {
       ]
     },
     metadata: [
+      { name: 'title', content: title },
+      { name: 'description', content: description },
       { name: 'keywords', content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs' },
       { name: 'application-name', content: 'BDFD Wiki' },
       { name: 'apple-mobile-web-app-title', content: 'BDFD Wiki' },
@@ -85,10 +91,7 @@ module.exports = {
       { name: 'og:type', content: 'website' },
       { name: 'og:title', content: title },
       { name: 'og:description', content: description },
-      { name: 'og:url', content: `https://${user}.github.io/${repo}/` },
-
-      { name: 'title', content: title },
-      { name: 'description', content: description }
+      { name: 'og:url', content: `https://${user}.github.io/${repo}/` }
     ],
     headTags: [
       { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png' } },
