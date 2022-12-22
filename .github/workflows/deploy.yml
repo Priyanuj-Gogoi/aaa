@@ -13,4 +13,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Deploy to GitHub Pages
-        run: GIT_USER=${{ github.event.head_commit.author.username }} docusaurus deploy
+        run: GIT_USER=${{ github.event.head_commit.author.username }} npm run deploy
