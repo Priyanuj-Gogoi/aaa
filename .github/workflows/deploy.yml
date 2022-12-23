@@ -19,7 +19,6 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     env:
-        - GIT_USER: "GitHub Actions"
         - GIT_PASS: ${{ secrets.GIT_PASS }}
     steps:
       - uses: actions/checkout@v3
@@ -27,4 +26,4 @@ jobs:
         with:
            node-version: 18
            token: ${{ env.GIT_PASS }}
-      - run: GIT_USER=$GIT_USER npm run deploy
+      - run: GIT_USER=GitHub Actions npm run deploy
