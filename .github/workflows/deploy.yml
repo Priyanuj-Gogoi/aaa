@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
        USER: ${{ github.event.head_commit.author.username }}
-       TOKEN: ${{ secrets.GIT_PASS }}
+       GIT_PASS: ${{ secrets.TOKEN }}
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
