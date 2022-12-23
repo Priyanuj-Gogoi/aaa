@@ -1,11 +1,11 @@
 const {
-  USER, REPO, BRANCH
+  ORG, REPO, BRANCH
 } = process.env;
 
 module.exports = {
   title: 'BDFD Wiki',
   description: 'Soon...Rewriting',
-  user: USER || 'priyanuj-gogoi',
+  user: ORG || 'priyanuj-gogoi',
   repo: REPO || 'aaa',
   branch: BRANCH || 'main'
 };

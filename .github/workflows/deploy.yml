@@ -1,16 +1,17 @@
-name: Deploy
+name: Docs Deploy
 on: [push]
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.5.1
+      - uses: actions/setup-node@v3.5.1
         with:
-          node-version: latest
+          node-version: 18
+          cache: 'npm'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Deploy to GitHub Pages
         run: GIT_USER=${{ github.event.head_commit.author.username }} npm run deploy
