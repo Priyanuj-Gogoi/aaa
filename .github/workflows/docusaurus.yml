@@ -12,7 +12,7 @@ jobs:
     env:
         token: ${{ secrets.TOKEN }}
     steps:
-       - name: Secret - TOKEN
+       - name: TOKEN
          if: env.token == ''
          run: |
             echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
@@ -39,4 +39,5 @@ jobs:
          run: |
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git switch --C --orphan gh-pages
             yarn deploy
