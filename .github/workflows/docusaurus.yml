@@ -2,7 +2,8 @@ name: Docusaurus
 on:
   push:
     branches:
-       - main
+       - prod
+       - dev
 
 jobs:
   validate:
