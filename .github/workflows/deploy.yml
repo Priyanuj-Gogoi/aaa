@@ -9,7 +9,7 @@ jobs:
     name: Deployment
     runs-on: ubuntu-latest
     env:
-       GIT_USER: GitHub Actions
+       GIT_USER: GitHub-Actions
        GIT_PASS: ${{ secrets.TOKEN }}
     steps:
        - name: Checkout Repository
