@@ -34,11 +34,12 @@ jobs:
          with:
             node-version: 18
             cache: 'yarn'
+       - name: test
+         run: echo "${{ env.USER_REPO }}"
        - name: Install Packages
          run: yarn --frozen-lockfile
        - name: Deploy to GitHub Pages
          run: |
-            echo "$USER_REPO"
             git config --global user.name "github-actions[bot]"
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             yarn deploy
