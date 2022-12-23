@@ -8,6 +8,9 @@ const repo = user_repo[1];
 const title = 'BDFD Docs';
 const description = 'Soon...Rewriting';
 
+console.log(repo)
+console.log(user)
+
 module.exports = {
   title: title,
   url: `https://${user}.github.io`,
@@ -21,7 +24,7 @@ module.exports = {
   onDuplicateRoutes: 'throw',
   tagline: 'Dinosaurs are cool',
   organizationName: user,
-  projectName: repo,
+  projectName: 'aaa',
   deploymentBranch: 'gh-pages',
   themeConfig: {
     docs: {
