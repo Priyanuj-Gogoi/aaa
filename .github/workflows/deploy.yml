@@ -5,25 +5,23 @@ on:
         - main
 
 jobs:
-  install:
-    name: Install Packages
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3.5.1
-        with:
-          node-version: 18
-      - run: npm install
   deploy:
-    name: Deploy to GitHub Pages
-    needs: install
+    name: Deployment
     runs-on: ubuntu-latest
-    env:
-        - GIT_PASS: ${{ secrets.GIT_PASS }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3.5.1
-        with:
-           node-version: 18
-           token: ${{ env.GIT_PASS }}
-      - run: GIT_USER=GitHub Actions npm run deploy
+
+   steps:
+       - name: Checkout Repository
+         uses: actions/checkout@v3
+
+       - name: Setup Node
+         uses: actions/setup-node@v3.5.1
+         with:
+            node-version: 18
+
+       - name: Install Packages
+         run: npm install
+
+      - name: Deploy to GitHub Pages
+        env:
+           - GIT_PASS: ${{ secrets.GIT_PASS }}
+        run: GIT_USER=GitHub Actions npm run deploy
