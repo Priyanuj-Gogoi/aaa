@@ -2,20 +2,25 @@ name: Docs Deploy
 on: [push]
 
 jobs:
-  deploy:
-    name: Deploy
+  install:
+    name: Install Packages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ env.GIT_PASS }}
       - uses: actions/setup-node@v3.5.1
         with:
           node-version: 18
-      - name: Install dependencies
         run: npm install
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 18
       - name: Deploy to GitHub Pages
+        env:
+         - GIT_PASS: ${{ secrets.GIT_PASS }}
         run: |
-          git config user.name "Github Actions"
-          git config user.email  "" 
-          GIT_USER=${{ github.event.head_commit.author.username }} npm run deploy
+          GIT_USER=GitHub Actions npm run deploy
