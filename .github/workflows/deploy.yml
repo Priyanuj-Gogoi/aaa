@@ -25,8 +25,8 @@ jobs:
       - name: Checkout Repository
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3.5.1
-         with:
-            node-version: 18
-            token: ${{ env.GIT_PASS }}
+        with:
+           node-version: 18
+           token: ${{ env.GIT_PASS }}
       -  name: Deploy to GitHub Pages
           run: GIT_USER=$GIT_USER npm run deploy
