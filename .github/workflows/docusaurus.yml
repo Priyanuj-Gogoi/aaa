@@ -3,18 +3,18 @@ on:
   push:
     branches:
        - prod
-    paths-ignore:
-       - '.github/**'
+  #  paths-ignore:
+    #   - '.github/**'
 
 jobs:
   validate:
     name: Validate ENVs
     runs-on: ubuntu-latest
     outputs:
-        git_pass: ${{ steps.git_pass.outputs.valid }}
+        git_pass: ${{ steps.gitPass.outputs.valid }}
     steps:
        - name: GIT_PASS
-          id: git_pass
+          id: gitPass
           env:
              valid: ${{ secrets.GIT_PASS }}
           if: env.valid  != ''
