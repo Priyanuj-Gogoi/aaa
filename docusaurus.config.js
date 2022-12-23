@@ -1,13 +1,10 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const user = process.env.GIT_OWNER
-const repo = process.env.GIT_REPO
+const user = process.env.GIT_OWNER;
+const repo = process.env.GIT_REPO;
 const title = 'BDFD Docs';
 const description = 'Soon...Rewriting';
-
-console.log(repo)
-console.log(user)
 
 module.exports = {
   title: title,
@@ -22,7 +19,7 @@ module.exports = {
   onDuplicateRoutes: 'throw',
   tagline: 'Dinosaurs are cool',
   organizationName: user,
-  projectName: 'aaa',
+  projectName: repo,
   deploymentBranch: 'gh-pages',
   themeConfig: {
     docs: {
