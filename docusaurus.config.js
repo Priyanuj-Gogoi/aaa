@@ -1,8 +1,9 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const
+  lightCodeTheme = require('prism-react-renderer/themes/github'),
+  darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const {
-  title, description, user, repo, branch,
+  title, description, user, repo, branch, deployBranch
 } = require('./wiki.config');
 
 module.exports = {
@@ -19,6 +20,7 @@ module.exports = {
   tagline: 'Dinosaurs are cool',
   organizationName: user,
   projectName: repo,
+  deploymentBranch: deployBranch,
   themeConfig: {
     docs: {
       sidebar: { hideable: true, autoCollapseCategories: true }
