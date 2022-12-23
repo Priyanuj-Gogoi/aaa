@@ -23,5 +23,5 @@ jobs:
        - name: Deploy to GitHub Pages
          run: |
             git config --global user.name "$GIT_USER"
-            git config --global user.email ""
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             yarn deploy
