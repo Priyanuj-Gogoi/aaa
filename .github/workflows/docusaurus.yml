@@ -17,8 +17,10 @@ jobs:
          id: git-pass
          env:
              valid: ${{ secrets.GIT_PASS }}
-         if: env.valid  != ''
+         if: env.valid != ''
          run: echo "::set-output name=valid::true"
+         if: env.valid == ''
+         run: echo "::error title=Missing ENVs::Failed to get GIT_PASS secret!"
 
   deploy:
     name: Deployment
