@@ -14,11 +14,11 @@ jobs:
         git_pass: ${{ steps.git-pass.outputs.valid }}
     steps:
        - name: GIT_PASS
-          id: git-pass
-          env:
+         id: git-pass
+         env:
              valid: ${{ secrets.GIT_PASS }}
-          if: env.valid  != ''
-          run: echo "::set-output name=valid::true"
+         if: env.valid  != ''
+         run: echo "::set-output name=valid::true"
 
   deploy:
     name: Deployment
