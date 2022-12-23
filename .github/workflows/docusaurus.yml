@@ -8,31 +8,30 @@ on:
 
 jobs:
   validate:
-    name: Validate Token
+    name: Validate Environment Secret
     runs-on: ubuntu-latest
     outputs:
         git_pass: ${{ steps.git-pass.outputs.valid }}
     env:
         valid: ${{ secrets.GIT_PASS }}
     steps:
-       - name: Token Success
+       - name: Success
          id: git-pass
          if: env.valid != ''
          run: echo "::set-output name=valid::true"
-       - name: Token Fail
+       - name: Failed
          if: env.valid == ''
          run: |
-            echo "::error title=Missing ENVs::Failed to get TOKEN secret!"
+            echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
             exit 1
 
   deploy:
     name: Deployment
     runs-on: ubuntu-latest
     needs: [validate]
-    if: needs.validate.outputs.git_pass == 'true'
     env:
        GIT_USER: $GITHUB_ACTOR
-       GIT_PASS: ${{ secrets.GIT_PASS }}
+       GIT_PASS: ${{ secrets.TOKEN }}
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
