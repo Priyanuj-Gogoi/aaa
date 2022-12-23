@@ -23,8 +23,8 @@ jobs:
         - GIT_PASS: ${{ secrets.GIT_PASS }}
     steps:
       - name: Checkout Repository
-         uses: actions/checkout@v3
-         uses: actions/setup-node@v3.5.1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.5.1
          with:
             node-version: 18
             token: ${{ env.GIT_PASS }}
