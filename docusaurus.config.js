@@ -1,10 +1,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const user_repo = process.env.USER_REPO.split('/');
-
-const user = user_repo[0];
-const repo = user_repo[1];
+const user = process.env.GIT_OWNER
+const repo = process.env.GIT_REPO
 const title = 'BDFD Docs';
 const description = 'Soon...Rewriting';
 
