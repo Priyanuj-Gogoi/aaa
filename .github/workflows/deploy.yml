@@ -13,4 +13,7 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: Deploy to GitHub Pages
-        run: GIT_USER=${{ github.event.head_commit.author.username }} npm run deploy
+        run: |
+          git config user.name "Github Actions"
+          git config user.email  "" 
+          GIT_USER=${{ github.event.head_commit.author.username }} npm run deploy
