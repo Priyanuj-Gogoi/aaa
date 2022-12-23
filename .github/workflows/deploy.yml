@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ env.GIT_PASS }}
       - uses: actions/setup-node@v3.5.1
         with:
           node-version: 18
       - name: Install dependencies
-        run: npm i
+        run: npm install
       - name: Deploy to GitHub Pages
         run: |
           git config user.name "Github Actions"
