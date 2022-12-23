@@ -1,8 +1,8 @@
 name: Docs Deploy
 on:
   push:
-     branches:
-        - main
+    branches:
+       - main
 
 jobs:
   deploy:
@@ -19,7 +19,7 @@ jobs:
          with:
             node-version: 18
        - name: Install Packages
-         run: yarn
+         run: yarn --frozen-lockfile
        - name: Deploy to GitHub Pages
          run: |
             git config --global user.name "github-actions[bot]"
