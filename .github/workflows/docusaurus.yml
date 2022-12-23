@@ -18,7 +18,7 @@ jobs:
        - name: Success
          id: git-pass
          if: env.valid != ''
-         run: echo "::set-output name=valid::true"
+         run: echo "valid=true" >> $GITHUB_OUTPUT
        - name: Failed
          if: env.valid == ''
          run: |
