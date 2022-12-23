@@ -25,7 +25,8 @@ jobs:
     env:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
-       USER_REPO: $GITHUB_REPOSITORY
+       GIT_REPO: ${{ github.repository.name }}
+       GIT_OWNER: ${{ github.repository_owner }}
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
