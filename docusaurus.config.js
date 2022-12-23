@@ -1,15 +1,17 @@
-const
-  lightCodeTheme = require('prism-react-renderer/themes/github'),
-  darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const {
-  title, description, user, repo, branch, deployBranch
-} = require('./wiki.config');
+const user_repo = process.env.USER_REPO.split('/');
+
+const user = user_repo[0];
+const repo = user_repo[1];
+const title = 'BDFD Docs';
+const description = 'Soon...Rewriting';
 
 module.exports = {
   title: title,
   url: `https://${user}.github.io`,
-  baseUrl: `/${repo}/`,
+  baseUrl: `/${user}/`,
   favicon: 'img/favicon.ico',
   trailingSlash: false,
   noIndex: true,
@@ -20,7 +22,7 @@ module.exports = {
   tagline: 'Dinosaurs are cool',
   organizationName: user,
   projectName: repo,
-  deploymentBranch: deployBranch,
+  deploymentBranch: 'gh-pages',
   themeConfig: {
     docs: {
       sidebar: { hideable: true, autoCollapseCategories: true }
@@ -135,7 +137,7 @@ module.exports = {
       {
         debug: true,
         docs: {
-          editUrl: `https://github.com/${user}/${repo}/edit/${branch}/`,
+          editUrl: `https://github.com/${user}/${repo}/edit/dev/`,
           routeBasePath: '/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
