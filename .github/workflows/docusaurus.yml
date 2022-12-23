@@ -35,8 +35,6 @@ jobs:
          with:
             node-version: 18
             cache: 'yarn'
-       - name: test
-         run: echo "${{ env.USER_REPO }}"
        - name: Install Packages
          run: yarn --frozen-lockfile
        - name: Deploy to GitHub Pages
