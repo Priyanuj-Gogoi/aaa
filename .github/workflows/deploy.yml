@@ -9,7 +9,7 @@ jobs:
     name: Deployment
     runs-on: ubuntu-latest
     env:
-       GIT_USER: GitHub-Actions
+       GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
     steps:
        - name: Checkout Repository
@@ -22,6 +22,6 @@ jobs:
          run: yarn
        - name: Deploy to GitHub Pages
          run: |
-            git config --global user.name "$GIT_USER"
+            git config --global user.name "github-actions[bot]"
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             yarn deploy
