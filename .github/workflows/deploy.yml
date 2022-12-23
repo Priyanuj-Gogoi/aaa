@@ -17,7 +17,7 @@ jobs:
             node-version: 18
        - name: Install Packages
          run: npm install
-      - name: Deploy to GitHub Pages
-        env:
-           - GIT_PASS: ${{ secrets.GIT_PASS }}
-        run: GIT_USER=GitHub Actions npm run deploy
+       - name: Deploy to GitHub Pages
+         env:
+            - GIT_PASS: ${{ secrets.GIT_PASS }}
+         run: GIT_USER=GitHub Actions npm run deploy
