@@ -1,8 +1,10 @@
-name: Docs Deploy
+name: Docusaurus
 on:
   push:
     branches:
-       - main
+       - prod
+    paths-ignore:
+       - '.github/**'
 
 jobs:
   deploy:
@@ -12,6 +14,9 @@ jobs:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
     steps:
+       - name: Verify GIT_PASS
+         if: ${{ env.GIT_PASS != '' }}
+         run: echo "::error file={name},line={line},endLine={endLine},title={title}::{message}"
        - name: Checkout Repository
          uses: actions/checkout@v3
        - name: Setup Node
