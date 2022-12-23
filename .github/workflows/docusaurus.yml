@@ -25,7 +25,7 @@ jobs:
     env:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
-       PROJECT_NAME: ${{ github.repository.name }}
+       PROJECT_NAME: $GITHUB_REPOSITORY##*/
        ORGANIZATION_NAME: ${{ github.repository_owner }}
        DEPLOYMENT_BRANCH: 'gh-pages'
     steps:
