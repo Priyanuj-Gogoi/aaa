@@ -2,16 +2,14 @@ name: Docusaurus
 on:
   push:
     branches:
-       - prod
-  #  paths-ignore:
-    #   - '.github/**'
+       - main
 
 jobs:
   validate:
     name: Validate Environment Secrets
     runs-on: ubuntu-latest
     env:
-        token: secrets.TOKEN
+        token: ${{ secrets.TOKEN }}
     steps:
        - name: Secret - TOKEN
          if: env.token == ''
