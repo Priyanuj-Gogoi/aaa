@@ -29,4 +29,4 @@ jobs:
            node-version: 18
            token: ${{ env.GIT_PASS }}
       -  name: Deploy to GitHub Pages
-          run: GIT_USER=$GIT_USER npm run deploy
+      - run: GIT_USER=$GIT_USER npm run deploy
