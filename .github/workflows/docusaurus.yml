@@ -11,10 +11,10 @@ jobs:
     name: Validate ENVs
     runs-on: ubuntu-latest
     outputs:
-        git_pass: ${{ steps.gitPass.outputs.valid }}
+        git_pass: ${{ steps.git-pass.outputs.valid }}
     steps:
        - name: GIT_PASS
-          id: gitPass
+          id: git-pass
           env:
              valid: ${{ secrets.GIT_PASS }}
           if: env.valid  != ''
