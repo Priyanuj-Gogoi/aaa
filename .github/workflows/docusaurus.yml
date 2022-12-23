@@ -13,7 +13,7 @@ jobs:
     outputs:
         git_pass: ${{ steps.git-pass.outputs.valid }}
     env:
-        valid: ${{ secrets.GIT_PASS }}
+        valid: ${{ secrets.TOKEN }}
     steps:
        - name: Success
          id: git-pass
