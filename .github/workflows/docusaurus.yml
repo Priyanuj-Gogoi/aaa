@@ -8,19 +8,13 @@ on:
 
 jobs:
   validate:
-    name: Validate Environment Secret
+    name: Validate Environment Secrets
     runs-on: ubuntu-latest
-    outputs:
-        git_pass: ${{ steps.git-pass.outputs.valid }}
     env:
-        valid: ${{ secrets.TOKEN }}
+        token: ${{ secrets.TOKEN }}
     steps:
-       - name: Success
-         id: git-pass
-         if: env.valid != ''
-         run: echo "valid=true" >> $GITHUB_OUTPUT
-       - name: Failed
-         if: env.valid == ''
+       - name: Secret - TOKEN
+         if: env.token == ''
          run: |
             echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
             exit 1
