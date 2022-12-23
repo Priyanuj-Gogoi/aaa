@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3.5.1
         with:
           node-version: 18
-        run: npm install
+      - run: npm install
   deploy:
     name: Deploy to GitHub Pages
     needs: install
@@ -28,4 +28,4 @@ jobs:
         with:
            node-version: 18
            token: ${{ env.GIT_PASS }}
-        run: GIT_USER=$GIT_USER npm run deploy
+      - run: GIT_USER=$GIT_USER npm run deploy
