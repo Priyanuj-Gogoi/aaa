@@ -9,7 +9,7 @@ const description = 'Soon...Rewriting';
 module.exports = {
   title: title,
   url: `https://${user}.github.io`,
-  baseUrl: `/${user}/`,
+  baseUrl: `/${repo}/`,
   favicon: 'img/favicon.ico',
   trailingSlash: false,
   noIndex: true,
