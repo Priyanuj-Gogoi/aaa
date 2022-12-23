@@ -18,4 +18,4 @@ jobs:
        - name: Install Packages
          run: npm install
        - name: Deploy to GitHub Pages
-         run: GIT_USER=GitHub Actions npm run deploy
+         run: GIT_USER=GitHub-Actions npm run deploy
