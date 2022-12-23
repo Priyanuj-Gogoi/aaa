@@ -25,8 +25,9 @@ jobs:
     env:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
-       GIT_REPO: ${{ github.repository.name }}
-       GIT_OWNER: ${{ github.repository_owner }}
+       PROJECT_NAME: ${{ github.repository.name }}
+       ORGANIZATION_NAME: ${{ github.repository_owner }}
+       DEPLOYMENT_BRANCH: 'gh-pages'
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
