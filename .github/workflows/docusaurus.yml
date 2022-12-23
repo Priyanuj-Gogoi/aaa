@@ -8,19 +8,22 @@ on:
 
 jobs:
   validate:
-    name: Validate ENVs
+    name: Validate Token
     runs-on: ubuntu-latest
     outputs:
         git_pass: ${{ steps.git-pass.outputs.valid }}
     env:
         valid: ${{ secrets.GIT_PASS }}
     steps:
-       - name: GIT_PASS
+       - name: Token Success
          id: git-pass
          if: env.valid != ''
          run: echo "::set-output name=valid::true"
-       - if: env.valid == ''
-         run: echo "::error title=Missing ENVs::Failed to get GIT_PASS secret!"
+       - name: Token Fail
+         if: env.valid == ''
+         run: |
+            echo "::error title=Missing ENVs::Failed to get TOKEN secret!"
+            exit 1
 
   deploy:
     name: Deployment
