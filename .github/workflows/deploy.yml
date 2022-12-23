@@ -21,6 +21,6 @@ jobs:
           node-version: 18
       - name: Deploy to GitHub Pages
         env:
-         - GIT_PASS: ${{ env.GIT_PASS }}
+         - GIT_PASS: ${{ secrets.GIT_PASS }}
         run: |
           GIT_USER=GitHub Actions npm run deploy
