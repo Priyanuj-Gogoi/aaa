@@ -16,6 +16,7 @@
 .env.production.local
 
 npm-debug.log*
+package-lock.json
 
 replit.nix
 .replit
