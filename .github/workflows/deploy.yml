@@ -8,6 +8,9 @@ jobs:
   deploy:
     name: Deployment
     runs-on: ubuntu-latest
+    env:
+       USER: ${{ github.event.head_commit.author.username }}
+       TOKEN: ${{ secrets.GIT_PASS }}
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
@@ -16,6 +19,6 @@ jobs:
          with:
             node-version: 18
        - name: Install Packages
-         run: npm install
+         run: yarn
        - name: Deploy to GitHub Pages
-         run: GIT_USER=GitHub-Actions npm run deploy
+         run: GIT_USER="$USER" yarn deploy
