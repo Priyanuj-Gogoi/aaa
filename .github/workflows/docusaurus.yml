@@ -9,7 +9,7 @@ on:
 env:
    GIT_USER: $GITHUB_ACTOR
    GIT_PASS: ${{ secrets.TOKEN }}
-   ORGANIZATION_NAME: ${{ github.repository_owner }}
+   GIT_REPO: $GITHUB_REPOSITORY
    DEPLOYMENT_BRANCH: 'gh-pages'
 
 jobs:
