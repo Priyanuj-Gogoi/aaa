@@ -1,4 +1,4 @@
-name: Docs Deploy
+name: Docs
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: GitHub Pages
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
@@ -16,7 +16,7 @@ jobs:
        TYPE: 'Production'
 
     steps:
-       - name: Validating Environment Secret
+       - name: Validate Environment Secret
          if: env.GIT_PASS == ''
          run: |
             echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
@@ -52,6 +52,5 @@ jobs:
 
        - name: Job Summary
          run: |
-            echo "### 🚀 Successfully Deployed! 🚀" >> $GITHUB_STEP_SUMMARY
             echo "Type: ${{ env.TYPE }}" >> $GITHUB_STEP_SUMMARY
-            echo "Preview: https://${{ env.ORGANIZATION_NAME }}.github.io/${{ env.PROJECT_NAME }}",, >> $GITHUB_STEP_SUMMARY
+            echo "Preview: https://${{ env.ORGANIZATION_NAME }}.github.io/${{ env.PROJECT_NAME }}" >> $GITHUB_STEP_SUMMARY
