@@ -17,10 +17,12 @@ jobs:
 
     steps:
        - name: Validate Environment Secret
-         if: env.GIT_PASS == ''
          run: |
-            echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
-            exit 1
+            if [ -z $GIT_PASS ]
+            then
+               echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
+               exit 1
+            fi
 
        - name: Checkout Repository
          uses: actions/checkout@v3
