@@ -54,4 +54,4 @@ jobs:
          run: |
             echo "### 🚀 Successfully Deployed! 🚀" >> $GITHUB_STEP_SUMMARY
             echo "Type: ${{ env.TYPE }}" >> $GITHUB_STEP_SUMMARY
-            echo "Preview: https://${{ env.ORGANIZATION_NAME }}.github.io/${{ env.PROJECT_NAME }}" | tr '[:upper:]' '[:lower:]' >> $GITHUB_STEP_SUMMARY
+            echo "Preview: https://${{ env.ORGANIZATION_NAME,,}}.github.io/${{ env.PROJECT_NAME,, }}" >> $GITHUB_STEP_SUMMARY
