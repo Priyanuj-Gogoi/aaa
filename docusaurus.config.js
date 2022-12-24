@@ -22,6 +22,7 @@ module.exports = {
   tagline: 'Dinosaurs are cool',
   organizationName: user,
   projectName: repo,
+  deploymentBranch: 'gh-pages',
   themeConfig: {
     docs: {
       sidebar: { hideable: true, autoCollapseCategories: true }
