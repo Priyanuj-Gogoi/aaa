@@ -38,8 +38,8 @@ jobs:
          run: |
             git config --global user.name "github-actions[bot]"
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            echo "ORGANIZATION_NAME=${GITHUB_REPOSITORY%/*}" >> $GITHUB_ENV
-            echo "PROJECT_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+            echo "ORGANIZATION_NAME=${GITHUB_REPOSITORY%/*}" ,, >> $GITHUB_ENV
+            echo "PROJECT_NAME=${GITHUB_REPOSITORY#*/}" ,, >> $GITHUB_ENV
 
        - name: Production Deploy
          if: github.ref == 'refs/heads/prod'
@@ -54,4 +54,4 @@ jobs:
          run: |
             echo "### 🚀 Successfully Deployed! 🚀" >> $GITHUB_STEP_SUMMARY
             echo "Type: ${{ env.TYPE }}" >> $GITHUB_STEP_SUMMARY
-            echo "Preview: https://${{ env.ORGANIZATION_NAME ,, }}.github.io/${{ env.PROJECT_NAME ,, }}" >> $GITHUB_STEP_SUMMARY
+            echo "Preview: https://${{ env.ORGANIZATION_NAME }}.github.io/${{ env.PROJECT_NAME }}" >> $GITHUB_STEP_SUMMARY
