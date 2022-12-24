@@ -35,12 +35,6 @@ jobs:
        - name: Checkout Repository
          uses: actions/checkout@v3
 
-       - name: Setup Node
-         uses: actions/setup-node@v3.5.1
-         with:
-            node-version: 18
-            cache: 'yarn'
-
        - name: Install Packages
          run: yarn --frozen-lockfile
 
