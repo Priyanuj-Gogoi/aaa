@@ -10,7 +10,6 @@ env:
    GIT_USER: $GITHUB_ACTOR
    GIT_PASS: ${{ secrets.TOKEN }}
    GIT_REPO: ${{ github.repository }}
-   DEPLOYMENT_BRANCH: 'gh-pages'
 
 jobs:
   validate:
@@ -39,7 +38,6 @@ jobs:
          run: yarn --frozen-lockfile
        - name: Deploy to GitHub Pages
          run: |
-            echo "PROJECT_NAME=aaa" >> $GITHUB_ENV
             git config --global user.name "github-actions[bot]"
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             yarn deploy
