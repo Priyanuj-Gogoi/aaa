@@ -13,6 +13,9 @@ jobs:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
        GIT_REPO: ${{ github.repository }}
+       DEPLOYMENT-BRANCH: 'gh-pages'
+       TYPE: 'Production'
+
     steps:
        - name: Validating Environment Secret
          if: env.GIT_PASS == ''
@@ -38,21 +41,18 @@ jobs:
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             echo "ORGANIZATION_NAME=${GITHUB_REPOSITORY%/*}" >> $GITHUB_ENV
             echo "PROJECT_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-            echo "DEPLOYMENT_BRANCH=gh-pages" >> $GITHUB_ENV
 
        - name: Production Deploy
          if: github.ref == 'refs/heads/prod'
-         run: |
-            yarn deploy
-            echo "type=Production" >> $GITHUB_ENV
+         run: yarn deploy
 
        - name: Development Deploy
          if: github.ref == 'refs/heads/dev'
          run: |
-            echo "type=Development" >> $GITHUB_ENV
+            echo "TYPE=Development" >> $GITHUB_ENV
 
        - name: Job Summary
          run: |
             echo "### 🚀 Successfully Deployed! 🚀" >> $GITHUB_STEP_SUMMARY
-            echo "Type: ${{ env.type }}" >> $GITHUB_STEP_SUMMARY
+            echo "Type: ${{ env.TYPE }}" >> $GITHUB_STEP_SUMMARY
             echo "Preview: https://${{ env.ORGANIZATION_NAME }}.github.io/${{ env.PROJECT_NAME }}" >> $GITHUB_STEP_SUMMARY
