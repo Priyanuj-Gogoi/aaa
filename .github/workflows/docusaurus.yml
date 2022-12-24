@@ -39,7 +39,7 @@ jobs:
          run: yarn --frozen-lockfile
        - name: Deploy to GitHub Pages
          run: |
-            echo "PROJECT_NAME=${$GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+            echo "PROJECT_NAME=aaa" >> $GITHUB_ENV
             git config --global user.name "github-actions[bot]"
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             yarn deploy
