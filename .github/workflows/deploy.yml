@@ -1,4 +1,4 @@
-name: Docusaurus
+name: Docs Deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
        - dev
 
 env:
-   GIT_USER: $GITHUB_ACTOR
+   GIT_USER: ${{ github.pusher.username }}
    GIT_PASS: ${{ secrets.TOKEN }}
    GIT_REPO: ${{ github.repository }}
 
@@ -22,8 +22,8 @@ jobs:
             echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
             exit 1
 
-  deploy:
-    name: Deployment
+  prod:
+    name: Production
     runs-on: ubuntu-latest
     needs: validate
     steps:
