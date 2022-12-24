@@ -2,7 +2,9 @@ name: Docs
 
 on:
   push:
-    branches: [prod, dev]
+    branches:
+         - prod
+         - dev
 
 jobs:
   deploy:
@@ -16,12 +18,18 @@ jobs:
        TYPE: 'Production'
 
     steps:
-       - name: Validate Environment Secret
+       - name: Configuration
          run: |
             if [ -z $GIT_PASS ]
             then
-               echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
-               exit 1
+                  echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
+                  exit 1
+            else
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+                  echo "ORGANIZATION_NAME=${GITHUB_REPOSITORY%/*}" >> $GITHUB_ENV
+                  echo "PROJECT_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
             fi
 
        - name: Checkout Repository
@@ -35,13 +43,6 @@ jobs:
 
        - name: Install Packages
          run: yarn --frozen-lockfile
-
-       - name: Configuration
-         run: |
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            echo "ORGANIZATION_NAME=${GITHUB_REPOSITORY%/*}" >> $GITHUB_ENV
-            echo "PROJECT_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
        - name: Production Deploy
          if: github.ref == 'refs/heads/prod'
