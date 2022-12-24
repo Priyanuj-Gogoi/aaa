@@ -52,3 +52,4 @@ jobs:
          run: |
             echo "### 🚀 Successfully Deployed! 🚀" >> $GITHUB_STEP_SUMMARY
             echo "Type: ${{ env.type }}" >> $GITHUB_STEP_SUMMARY
+            echo "Preview: https://${{ github.event.push.organization }}" >> $GITHUB_STEP_SUMMARY
