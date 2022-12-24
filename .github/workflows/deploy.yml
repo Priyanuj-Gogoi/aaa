@@ -1,34 +1,24 @@
-name: Docs Deploy
+name: Docs
 
 on:
   push:
-    branches:
-       - prod
-       - dev
-
-env:
-   GIT_USER: $GITHUB_ACTOR
-   GIT_PASS: ${{ secrets.TOKEN }}
-   GIT_REPO: ${{ github.repository }}
+    branches: [prod, dev]
 
 jobs:
-  validate:
-    name: Validate Environment Secrets
+  deploy:
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 5
+    env:
+       GIT_USER: $GITHUB_ACTOR
+       GIT_PASS: ${{ secrets.TOKEN }}
+       GIT_REPO: ${{ github.repository }}
     steps:
-       - name: TOKEN
+       - name: Validating Environment Secret
          if: env.GIT_PASS == ''
          run: |
             echo "::error title=Missing secret!::Failed to get TOKEN environment secret!"
             exit 1
-
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: validate
-    timeout-minutes: 5
-    steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
        - name: Setup Node
@@ -42,9 +32,9 @@ jobs:
          run: |
             git config --global user.name "github-actions[bot]"
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-       - name: Production
+       - name: Production Deploy
          if: github.ref == 'refs/heads/prod' 
          run: yarn deploy
-       - name: Development
+       - name: Development Deploy
          if: github.ref == 'refs/heads/dev'
          run: echo "Hi"
