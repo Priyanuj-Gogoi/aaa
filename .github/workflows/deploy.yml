@@ -1,4 +1,4 @@
-name: Docs
+name: Docs Deploy
 
 on:
   push:
@@ -6,13 +6,12 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
+    name: GitHub Pages
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
-       GIT_REPO: ${{ github.repository }}
        DEPLOYMENT-BRANCH: 'gh-pages'
        TYPE: 'Production'
 
