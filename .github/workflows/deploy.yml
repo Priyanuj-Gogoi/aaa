@@ -7,7 +7,7 @@ on:
        - dev
 
 env:
-   GIT_USER: ${{ github.pusher.username }}
+   GIT_USER: ${{ github.event.pusher.username }}
    GIT_PASS: ${{ secrets.TOKEN }}
    GIT_REPO: ${{ github.repository }}
 
