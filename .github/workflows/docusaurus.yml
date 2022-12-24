@@ -26,7 +26,7 @@ jobs:
        GIT_USER: $GITHUB_ACTOR
        GIT_PASS: ${{ secrets.TOKEN }}
        PROJECT_NAME: '${GITHUB_REPOSITORY#*/}'
-       ORGANIZATION_NAME: '${GITHUB_REPOSITORY%/*}'
+       ORGANIZATION_NAME: ${{ github.repository_owner }}
        DEPLOYMENT_BRANCH: 'gh-pages'
     steps:
        - name: Checkout Repository
