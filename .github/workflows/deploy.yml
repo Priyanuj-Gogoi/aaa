@@ -15,6 +15,7 @@ jobs:
   validate:
     name: Validate Environment Secrets
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
        - name: TOKEN
          if: env.GIT_PASS == ''
@@ -26,6 +27,7 @@ jobs:
     name: Production
     runs-on: ubuntu-latest
     needs: validate
+    timeout-minutes: 5
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v3
