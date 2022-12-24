@@ -40,16 +40,16 @@ jobs:
        - name: Production Deploy
          if: github.ref == 'refs/heads/prod'
          env:
-             type: Production
+             TYPE: Production
          run: yarn deploy
 
        - name: Development Deploy
          if: github.ref == 'refs/heads/dev'
          env:
-             type: Development
+             TYPE: Development
          run: echo "Hi"
 
        - name: Job Summary
          run: |
            echo "### :rocket: Successfully Deployed! :rocket: " >> $GITHUB_STEP_SUMMARY
-           echo "Type: ${{ env.type }}" >> $GITHUB_STEP_SUMMARY
+           echo "Type: $TYPE" >> $GITHUB_STEP_SUMMARY
