@@ -1,15 +1,18 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const user = 'priyanuj-gogoi'
-const repo = 'aaa';
+const git_repo = process.env.GITHUB_REPOSITORY.split('/');
+
+const user = git_repo[0];
+const repo = git_repo[1] + (process.env.DEV_LINK || '') + '/';
+
 const title = 'BDFD Docs';
 const description = 'Soon...Rewriting';
 
 module.exports = {
-  title: title,
+  title: 'BDFD Docs',
   url: `https://${user}.github.io`,
-  baseUrl: `/${repo}/`,
+  baseUrl: `/${repo}`,
   favicon: 'img/favicon.ico',
   trailingSlash: false,
   noIndex: true,
@@ -85,12 +88,12 @@ module.exports = {
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
-      { name: 'twitter:url', content: `https://${user}.github.io/${repo}/` },
+      { name: 'twitter:url', content: `https://${user}.github.io/${repo}` },
 
       { name: 'og:type', content: 'website' },
       { name: 'og:title', content: title },
       { name: 'og:description', content: description },
-      { name: 'og:url', content: `https://${user}.github.io/${repo}/` }
+      { name: 'og:url', content: `https://${user}.github.io/${repo}` }
     ],
     headTags: [
       { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png' } },
@@ -132,7 +135,7 @@ module.exports = {
       {
         debug: true,
         docs: {
-          editUrl: `https://github.com/${user}/${repo}/edit/dev/`,
+          editUrl: `https://github.com/${user}/${repo}edit/dev/`,
           routeBasePath: '/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,

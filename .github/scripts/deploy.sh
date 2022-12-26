@@ -23,7 +23,7 @@ then
    cp -R ../build/* . 
 else
    TYPE="Development"
-   DEV_LINK= "/dev"
+   DEV_LINK="/dev"
    rm -r dev
    mkdir -p dev
    cp -R ../build/* ./dev/
