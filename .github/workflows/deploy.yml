@@ -29,5 +29,5 @@ jobs:
 
        - name: Deploy to GitHub Pages
          env:
-              TOKEN: ${{ secrets.TOKEN }}
+              TOKEN: ${{ github.token }}
          run: sh ./.github/scripts/deploy.sh
