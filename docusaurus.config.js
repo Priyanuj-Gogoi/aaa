@@ -7,12 +7,11 @@ for (let str of bdscript) {
   darkCodeTheme.styles.push(str);
 };
 
-console.log(JSON.stringify(darkCodeTheme))
-
 const git_repo = process.env.GITHUB_REPOSITORY.split('/');
+const dev = process.env.DEV_LINK || '';
 
 const user = git_repo[0];
-const repo = git_repo[1] + (process.env.DEV_LINK || '') + '/';
+const repo = git_repo[1] + dev + '/';
 
 const title = 'BDFD Docs';
 const description = 'Soon...Rewriting';
@@ -21,7 +20,7 @@ module.exports = {
   title: 'BDFD Docs',
   url: `https://${user}.github.io`,
   baseUrl: `/${repo}`,
-  favicon: 'img/favicon.ico',
+  favicon: require.resolve('./static/img/favicon.ico'),
   trailingSlash: false,
   noIndex: true,
   markdown: { mermaid: true },
@@ -31,21 +30,24 @@ module.exports = {
   tagline: 'Dinosaurs are cool',
   themeConfig: {
     docs: {
-      sidebar: { hideable: true, autoCollapseCategories: true }
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true
+      }
     },
     colorMode: { defaultMode: 'dark' },
-    image: 'img/assets/bdfd.png',
+    image: require.resolve('./static/img/assets/bdfd.png'),
     navbar: {
       title: 'Bot Designer For Discord',
       logo: {
         alt: 'BDFD Logo',
-        src: 'img/assets/bdfd.png',
-        srcDark: 'img/assets/bdfd-transparent.png'
+        src: require.resolve('./static/img/assets/bdfd.png'),
+        srcDark: require.resolve('./static/img/assets/bdfd-transparent.png')
       },
       items: [
         { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
         { type: 'localeDropdown', position: 'right' },
-        { href: `https://github.com/${user}/${repo}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
+        { href: `https://github.com/${user}/${git_repo[1]}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
       ],
     },
     footer: {
@@ -104,14 +106,14 @@ module.exports = {
       { name: 'og:url', content: `https://${user}.github.io/${repo}` }
     ],
     headTags: [
-      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: './img/apple-touch-icon.png' } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: './img/favicon-32x32.png' } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: './img/android-chrome-192x192.png' } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: './img/favicon-16x16.png' } },
+      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: require.resolve('./static/img/apple-touch-icon.png') } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: require.resolve('./static/img/favicon-32x32.png') } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: require.resolve('./static/img/android-chrome-192x192.png') } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: require.resolve('./static/img/favicon-16x16.png') } },
     ],
     announcementBar: {
       id: 'announcement-bar',
-      content: `Give a 🌟 on our <a target="_blank" href="https://github.com/${user}/${repo}">GitHub</a>, if you liked the new docs!`
+      content: `Give a 🌟 on our <a target="_blank" href="https://github.com/${user}/${git_repo[1]}">GitHub</a>, if you liked the new docs!`
     }
   },
   themes: ['@docusaurus/theme-mermaid'],
@@ -124,14 +126,14 @@ module.exports = {
           'appInstalled', 'queryString', 'standalone', 'saveData'
         ],
         pwaHead: [
-          { tagName: 'link', rel: 'icon', href: 'img/' },
-          { tagName: 'link', rel: 'manifest', href: 'manifest.json' },
-          { tagName: 'link', rel: 'apple-touch-icon', href: 'img/apple-touch-icon.png' },
-          { tagName: 'link', rel: 'mask-icon', href: 'img/safari-pinned-tab.svg', color: '#748ad5' },
+          { tagName: 'link', rel: 'icon', href: require.resolve('./static/img/favicon-32x32.png') },
+          { tagName: 'link', rel: 'manifest', href: require.resolve('./static/manifest.json') },
+          { tagName: 'link', rel: 'apple-touch-icon', href: require.resolve('./static/img/apple-touch-icon.png') },
+          { tagName: 'link', rel: 'mask-icon', href: require.resolve('./static/img/safari-pinned-tab.svg'), color: '#748ad5' },
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
           { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
           { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
-          { tagName: 'meta', name: 'msapplication-TileImage', content: 'img/mstile-144x144.png' },
+          { tagName: 'meta', name: 'msapplication-TileImage', content: require.resolve('./static/img/mstile-144x144.png') },
           { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5' }
         ]
       }
@@ -143,15 +145,16 @@ module.exports = {
       {
         debug: true,
         docs: {
-          editUrl: `https://github.com/${user}/${repo}edit/dev/`,
-          routeBasePath: '/',
+          editUrl: `https://github.com/${user}/${git_repo[1]}/edit/dev/`,
+          routeBasePath: '/' + dev,
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
         blog: false,
-        theme: { customCss: 'src/css/custom.css' },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css')
+        },
       },
     ],
   ],
-  titleDelimiter: '-'
 }
