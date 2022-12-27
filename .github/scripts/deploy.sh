@@ -1,14 +1,5 @@
 #!/bin/bash
 
-if [ -z $TOKEN ]
-then
-   echo "::error title=Missing secret!::Failed to find TOKEN environment secret!"
-   exit 1
-fi
-
-echo "${{ github.repository }}"
-echo "h"
-
 git clone https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git
 
 cd ${GITHUB_REPOSITORY#*/}
@@ -40,4 +31,4 @@ git commit -m "docs: deploy based on $GITHUB_SHA"
 git push -f origin gh-pages 
 
 echo "Type: $TYPE" >> $GITHUB_STEP_SUMMARY
-echo "Preview: https://${GITHUB_REPOSITORY%/*}.github.io/${GITHUB_REPOSITORY#*/}$DEV_LINK" >> $GITHUB_STEP_SUMMARY 
+echo "Preview: https://${GITHUB_REPOSITORY%/*}.github.io/${GITHUB_REPOSITORY#*/}$DEV_LINK/" >> $GITHUB_STEP_SUMMARY 
