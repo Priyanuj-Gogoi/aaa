@@ -20,7 +20,7 @@ module.exports = {
   title: 'BDFD Docs',
   url: `https://${user}.github.io`,
   baseUrl: `/${repo}`,
-  favicon: require.resolve('./static/img/favicon.ico'),
+  favicon: require.resolve('./static/img/favicon/favicon.ico'),
   trailingSlash: false,
   noIndex: true,
   markdown: { mermaid: true },
