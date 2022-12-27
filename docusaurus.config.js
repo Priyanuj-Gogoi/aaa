@@ -1,5 +1,13 @@
+const bdscript = require('./src/bdscript/highlight');
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+for (let str of bdscript) {
+  darkCodeTheme.styles.push(str);
+};
+
+console.log(JSON.stringify(darkCodeTheme))
 
 const git_repo = process.env.GITHUB_REPOSITORY.split('/');
 
