@@ -6,10 +6,8 @@ then
    exit 1
 fi
 
-echo "$GITHUB_TOKEN"
+echo "${{ github.repository }}"
 echo "h"
-echo "$TOKEN"
-echo "$GITHUB_ACTOR"
 
 git clone https://$GITHUB_ACTOR:$TOKEN@github.com/$GITHUB_REPOSITORY.git
 
