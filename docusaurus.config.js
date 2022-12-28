@@ -128,7 +128,7 @@ module.exports = {
         pwaHead: [
           { tagName: 'link', rel: 'icon', href: '/img/icons/android/android-chrome-192x192.png' },
           { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
-          { tagName: 'link', rel: 'apple-touch-icon', href: '/img/icons/ios/apple-touch-icon.png' },
+          { tagName: 'link', rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
           { tagName: 'link', rel: 'mask-icon', href: '/img/icons/safari-pinned-tab.svg', color: '#748ad5' },
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
           { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
