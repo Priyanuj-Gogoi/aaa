@@ -76,7 +76,7 @@ module.exports = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a target="_blank" href="https://nilpointer.software" title="NilPointer Software">NilPointer Software</a>`,
+      copyright: `Copyright © ${new Date().getFullYear()} NilPointer Software`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -127,7 +127,7 @@ module.exports = {
     announcementBar: {
       id: 'announcement-bar',
       content: `Give a 🌟 on our <a target="_blank" href="${github}">GitHub</a>, if you liked the new docs!`,
-      backgroundColor: '#fafbfc',
+      backgroundColor: '#E5F9E0',
       textColor: '#091E42',
     },
     tableOfContents: {
@@ -174,7 +174,7 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css')
         },
         sitemap: {
-          ignorePatterns: ['/tags/**']
+          ignorePatterns: ['/tags/**'],
         }
       },
     ],
