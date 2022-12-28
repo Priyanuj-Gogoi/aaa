@@ -14,47 +14,47 @@
   ],
   "icons": [
     {
-      "src": "https://dropbox.com/s/0acueh7a7rdpqii/android-chrome-36x36.png?raw=1",
+      "src": "/img/icons/android/android-chrome-36x36.png",
       "sizes": "36x36",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/49hiogbo470eom3/android-chrome-48x48.png?raw=1",
+      "src": "/img/icons/android/android-chrome-48x48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/huaiu1b55gdls95/android-chrome-72x72.png?raw=1",
+      "src": "/img/icons/android/android-chrome-72x72.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/gy1aa6n8thdexaa/android-chrome-96x96.png?raw=1",
+      "src": "/img/icons/android/android-chrome-96x96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/7995gdjo7jfc7r9/android-chrome-144x144.png?raw=1",
+      "src": "/img/icons/android/android-chrome-144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/8quajt2nhjfgum3/android-chrome-192x192.png?raw=1",
+      "src": "/img/icons/android/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/0z0fz1gzctwiw52/android-chrome-256x256.png?raw=1",
+      "src": "/img/icons/android/android-chrome-256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/5hj57yzj0viwiyb/android-chrome-384x384.png?raw=1",
+      "src": "/img/icons/android/android-chrome-384x384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "https://dropbox.com/s/r7xe5q5bc12tyo4/android-chrome-512x512.png?raw=1",
+      "src": "/img/icons/android/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

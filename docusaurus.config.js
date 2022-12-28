@@ -10,7 +10,7 @@ module.exports = {
   title: 'BDFD Docs',
   url: url,
   baseUrl: '/',
-  favicon: 'https://dropbox.com/s/ucw0j2dsr99dni7/favicon.ico?raw=1',
+  favicon: '/img/icons/favicon/favicon.ico',
   trailingSlash: false,
   noIndex: true,
   markdown: {
@@ -30,13 +30,13 @@ module.exports = {
     colorMode: {
       defaultMode: 'dark'
     },
-    image: 'https://dropbox.com/s/skqpwyli9xexvlt/logo-512x512.png?raw=1',
+    image: '/img/icons/logo-512x512.png',
     navbar: {
       title: 'Bot Designer For Discord',
       logo: {
         alt: 'BDFD Logo',
-        src: 'https://dropbox.com/s/skqpwyli9xexvlt/logo-512x512.png?raw=1',
-        srcDark: 'https://dropbox.com/s/5blbcou9lcx12lq/logo-transparent.png?raw=1'
+        src: '/img/icons/logo-512x512.png',
+        srcDark: '/img/icons/logo-transparent.png'
       },
       items: [
         { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
@@ -106,10 +106,10 @@ module.exports = {
       { name: 'og:url', content: url }
     ],
     headTags: [
-      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: 'https://dropbox.com/s/lh7c7oyf1hsa5i7/apple-touch-icon.png?raw=1' } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'https://dropbox.com/s/2nccq4e3y1um484/favicon-32x32.png?raw=1' } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: 'https://dropbox.com/s/8quajt2nhjfgum3/android-chrome-192x192.png?raw=1' } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'https://dropbox.com/s/njk429zzkzy52rt/favicon-16x16.png?raw=1' } },
+      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: '/img/icons/ios/apple-touch-icon.png' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/icons/favicon/favicon-32x32.png' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/img/icons/android/android-chrome-192x192.png' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/icons/favicon/favicon-16x16.png' } },
     ],
     announcementBar: {
       id: 'announcement-bar',
@@ -126,14 +126,14 @@ module.exports = {
           'appInstalled', 'queryString', 'standalone', 'saveData'
         ],
         pwaHead: [
-          { tagName: 'link', rel: 'icon', href: 'https://dropbox.com/s/skqpwyli9xexvlt/logo-512x512.png?raw=1' },
+          { tagName: 'link', rel: 'icon', href: '/img/icons/logo-512x512.png' },
           { tagName: 'link', rel: 'manifest', href: require.resolve('./static/manifest.json') },
-          { tagName: 'link', rel: 'apple-touch-icon', href: 'https://dropbox.com/s/lh7c7oyf1hsa5i7/apple-touch-icon.png?raw=1' },
-          { tagName: 'link', rel: 'mask-icon', href: 'https://dropbox.com/s/c2qlauf171qu0mz/safari-pinned-tab.svg?raw=1', color: '#748ad5' },
+          { tagName: 'link', rel: 'apple-touch-icon', href: '/img/icons/ios/apple-touch-icon.png' },
+          { tagName: 'link', rel: 'mask-icon', href: '/img/icons/safari-pinned-tab.svg', color: '#748ad5' },
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
           { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
           { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
-          { tagName: 'meta', name: 'msapplication-TileImage', content: 'https://dropbox.com/s/u702vr6juv1dotz/mstile-144x144.png?raw=1' },
+          { tagName: 'meta', name: 'msapplication-TileImage', content: '/img/icons/ms-tile/mstile-144x144.png' },
           { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5' }
         ]
       }
