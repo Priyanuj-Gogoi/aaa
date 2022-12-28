@@ -1,29 +1,21 @@
-const bdscript = require('./src/bdscript/highlight');
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-for (let str of bdscript) {
-  darkCodeTheme.styles.push(str);
-};
-
-const git_repo = process.env.GITHUB_REPOSITORY.split('/');
-const dev = process.env.DEV_LINK || '';
-
-const user = git_repo[0];
-const repo = git_repo[1] + dev + '/';
-
+const github = 'https://github.com/priyanuj-gogoi/aaa';
+const url = 'https://bdfd-docs.netlify.app';
 const title = 'BDFD Docs';
 const description = 'Soon...Rewriting';
 
 module.exports = {
   title: 'BDFD Docs',
-  url: `https://${user}.github.io`,
-  baseUrl: `/${repo}`,
-  favicon: require.resolve('./static/img/favicon/favicon.ico'),
+  url: url,
+  baseUrl: '/',
+  favicon: 'https://dropbox.com/s/ucw0j2dsr99dni7/favicon.ico?raw=1',
   trailingSlash: false,
   noIndex: true,
-  markdown: { mermaid: true },
+  markdown: {
+    mermaid: true
+  },
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
@@ -35,19 +27,21 @@ module.exports = {
         autoCollapseCategories: true
       }
     },
-    colorMode: { defaultMode: 'dark' },
-    image: require.resolve('./static/img/assets/bdfd.png'),
+    colorMode: {
+      defaultMode: 'dark'
+    },
+    image: 'https://dropbox.com/s/skqpwyli9xexvlt/logo-512x512.png?raw=1',
     navbar: {
       title: 'Bot Designer For Discord',
       logo: {
         alt: 'BDFD Logo',
-        src: require.resolve('./static/img/assets/bdfd.png'),
-        srcDark: require.resolve('./static/img/assets/bdfd-transparent.png')
+        src: 'https://dropbox.com/s/skqpwyli9xexvlt/logo-512x512.png?raw=1',
+        srcDark: 'https://dropbox.com/s/5blbcou9lcx12lq/logo-transparent.png?raw=1'
       },
       items: [
         { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
         { type: 'localeDropdown', position: 'right' },
-        { href: `https://github.com/${user}/${git_repo[1]}`, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
+        { href: github, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
       ],
     },
     footer: {
@@ -69,7 +63,7 @@ module.exports = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a target="_blank" href="https://nilpointer.software" title="NilPointer Software">NilPointer Software</a><br>Powered by <a target="_blank" href="https://docusaurus.io">Docusaurus</a>`
+      copyright: `Copyright © ${new Date().getFullYear()} <a target="_blank" href="https://nilpointer.software" title="NilPointer Software">NilPointer Software</a>`,
     },
     hideOnScroll: true,
     prism: {
@@ -79,12 +73,18 @@ module.exports = {
         {
           className: 'theme-code-block-highlighted-line',
           line: 'highlight-next-line',
-          block: { start: 'highlight-start', end: 'highlight-end' }
+          block: {
+            start: 'highlight-start',
+            end: 'highlight-end'
+          }
         },
         {
           className: 'code-block-error-line',
           line: 'error-next-line',
-          block: { start: 'error-start', end: 'error-end' }
+          block: {
+            start: 'error-start',
+            end: 'error-end'
+          }
         },
       ]
     },
@@ -92,28 +92,28 @@ module.exports = {
       { name: 'title', content: title },
       { name: 'description', content: description },
       { name: 'keywords', content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs' },
-      { name: 'application-name', content: 'BDFD Wiki' },
-      { name: 'apple-mobile-web-app-title', content: 'BDFD Wiki' },
+      { name: 'application-name', content: 'BDFD Docs' },
+      { name: 'apple-mobile-web-app-title', content: 'BDFD Docs' },
 
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
-      { name: 'twitter:url', content: `https://${user}.github.io/${repo}` },
+      { name: 'twitter:url', content: url },
 
       { name: 'og:type', content: 'website' },
       { name: 'og:title', content: title },
       { name: 'og:description', content: description },
-      { name: 'og:url', content: `https://${user}.github.io/${repo}` }
+      { name: 'og:url', content: url }
     ],
     headTags: [
-      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: require.resolve('./static/img/apple-touch-icon.png') } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: require.resolve('./static/img/favicon-32x32.png') } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: require.resolve('./static/img/android-chrome-192x192.png') } },
-      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: require.resolve('./static/img/favicon-16x16.png') } },
+      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: 'https://dropbox.com/s/lh7c7oyf1hsa5i7/apple-touch-icon.png?raw=1' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'https://dropbox.com/s/2nccq4e3y1um484/favicon-32x32.png?raw=1' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: 'https://dropbox.com/s/8quajt2nhjfgum3/android-chrome-192x192.png?raw=1' } },
+      { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'https://dropbox.com/s/njk429zzkzy52rt/favicon-16x16.png?raw=1' } },
     ],
     announcementBar: {
       id: 'announcement-bar',
-      content: `Give a 🌟 on our <a target="_blank" href="https://github.com/${user}/${git_repo[1]}">GitHub</a>, if you liked the new docs!`
+      content: `Give a 🌟 on our <a target="_blank" href="${github}">GitHub</a>, if you liked the new docs!`
     }
   },
   themes: ['@docusaurus/theme-mermaid'],
@@ -126,14 +126,14 @@ module.exports = {
           'appInstalled', 'queryString', 'standalone', 'saveData'
         ],
         pwaHead: [
-          { tagName: 'link', rel: 'icon', href: require.resolve('./static/img/favicon-32x32.png') },
+          { tagName: 'link', rel: 'icon', href: 'https://dropbox.com/s/skqpwyli9xexvlt/logo-512x512.png?raw=1' },
           { tagName: 'link', rel: 'manifest', href: require.resolve('./static/manifest.json') },
-          { tagName: 'link', rel: 'apple-touch-icon', href: require.resolve('./static/img/apple-touch-icon.png') },
-          { tagName: 'link', rel: 'mask-icon', href: require.resolve('./static/img/safari-pinned-tab.svg'), color: '#748ad5' },
+          { tagName: 'link', rel: 'apple-touch-icon', href: 'https://dropbox.com/s/lh7c7oyf1hsa5i7/apple-touch-icon.png?raw=1' },
+          { tagName: 'link', rel: 'mask-icon', href: 'https://dropbox.com/s/c2qlauf171qu0mz/safari-pinned-tab.svg?raw=1', color: '#748ad5' },
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
           { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
           { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
-          { tagName: 'meta', name: 'msapplication-TileImage', content: require.resolve('./static/img/mstile-144x144.png') },
+          { tagName: 'meta', name: 'msapplication-TileImage', content: 'https://dropbox.com/s/u702vr6juv1dotz/mstile-144x144.png?raw=1' },
           { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5' }
         ]
       }
@@ -145,8 +145,8 @@ module.exports = {
       {
         debug: true,
         docs: {
-          editUrl: `https://github.com/${user}/${git_repo[1]}/edit/dev/`,
-          routeBasePath: '/' + dev,
+          editUrl: github + '/edit/dev/',
+          routeBasePath: '/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
