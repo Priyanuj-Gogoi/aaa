@@ -3,8 +3,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const github = 'https://github.com/priyanuj-gogoi/aaa';
 const url = 'https://bdfd-docs.netlify.app';
-const title = 'BDFD Docs';
-const description = 'Soon...Rewriting';
 
 module.exports = {
   title: 'BDFD Docs',
@@ -28,7 +26,8 @@ module.exports = {
       }
     },
     colorMode: {
-      defaultMode: 'dark'
+      defaultMode: 'dark',
+      respectPrefersColorScheme: true
     },
     image: '/img/icons/logo-512x512.png',
     navbar: {
@@ -38,10 +37,24 @@ module.exports = {
         src: '/img/icons/logo-512x512.png',
         srcDark: '/img/icons/logo-transparent.png'
       },
+      hideOnScroll: true,
       items: [
-        { type: 'doc', docId: 'getting-started/introduction', position: 'left', label: 'Docs' },
-        { type: 'localeDropdown', position: 'right' },
-        { href: github, position: 'right', className: 'header-github-link', 'aria-label': 'GitHub' }
+        {
+          type: 'doc',
+          docId: 'getting-started/introduction',
+          position: 'left',
+          label: 'Docs'
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right'
+        },
+        {
+          href: github,
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub'
+        },
       ],
     },
     footer: {
@@ -65,7 +78,6 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} <a target="_blank" href="https://nilpointer.software" title="NilPointer Software">NilPointer Software</a>`,
     },
-    hideOnScroll: true,
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
@@ -89,20 +101,21 @@ module.exports = {
       ]
     },
     metadata: [
-      { name: 'title', content: title },
-      { name: 'description', content: description },
+      { name: 'title', content: 'BDFD Docs' },
+      { name: 'description', content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.' },
       { name: 'keywords', content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs' },
+
       { name: 'application-name', content: 'BDFD Docs' },
       { name: 'apple-mobile-web-app-title', content: 'BDFD Docs' },
 
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: title },
-      { name: 'twitter:description', content: description },
+      { name: 'twitter:title', content: 'BDFD Docs' },
+      { name: 'twitter:description', content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.' },
       { name: 'twitter:url', content: url },
 
       { name: 'og:type', content: 'website' },
-      { name: 'og:title', content: title },
-      { name: 'og:description', content: description },
+      { name: 'og:title', content: 'BDFD Docs' },
+      { name: 'og:description', content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.' },
       { name: 'og:url', content: url }
     ],
     headTags: [
@@ -113,8 +126,13 @@ module.exports = {
     ],
     announcementBar: {
       id: 'announcement-bar',
-      content: `Give a 🌟 on our <a target="_blank" href="${github}">GitHub</a>, if you liked the new docs!`
-    }
+      content: `Give a 🌟 on our <a target="_blank" href="${github}">GitHub</a>, if you liked the new docs!`,
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+    },
+    tableOfContents: {
+      maxHeadingLevel: 4
+    },
   },
   themes: ['@docusaurus/theme-mermaid'],
   plugins: [
@@ -126,10 +144,11 @@ module.exports = {
           'appInstalled', 'queryString', 'standalone', 'saveData'
         ],
         pwaHead: [
-          { tagName: 'link', rel: 'icon', href: '/img/icons/android/android-chrome-192x192.png' },
+          { tagName: 'link', rel: 'icon', href: '/favicon.ico' },
           { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
           { tagName: 'link', rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
           { tagName: 'link', rel: 'mask-icon', href: '/img/icons/safari-pinned-tab.svg', color: '#748ad5' },
+
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
           { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
           { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
@@ -137,7 +156,7 @@ module.exports = {
           { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5' }
         ]
       }
-    ]
+    ],
   ],
   presets: [
     [
@@ -154,6 +173,9 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css')
         },
+        sitemap: {
+          ignorePatterns: ['/tags/**']
+        }
       },
     ],
   ],

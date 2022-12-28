@@ -1,6 +1,7 @@
 {
   "name": "BDFD Docs",
   "short_name": "BDFD Docs",
+  "description": "Documentation of BDFD functions, callbacks, features and lots more.",
   "theme_color": "#748ad5",
   "background_color": "#748ad5",
   "display": "standalone",
