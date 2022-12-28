@@ -10,7 +10,7 @@ module.exports = {
   title: 'BDFD Docs',
   url: url,
   baseUrl: '/',
-  favicon: '/img/icons/favicon/favicon.ico',
+  favicon: '/favicon.ico',
   trailingSlash: false,
   noIndex: true,
   markdown: {
@@ -106,7 +106,7 @@ module.exports = {
       { name: 'og:url', content: url }
     ],
     headTags: [
-      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: '/img/icons/ios/apple-touch-icon.png' } },
+      { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' } },
       { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/icons/favicon/favicon-32x32.png' } },
       { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/img/icons/android/android-chrome-192x192.png' } },
       { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/img/icons/favicon/favicon-16x16.png' } },
@@ -126,8 +126,8 @@ module.exports = {
           'appInstalled', 'queryString', 'standalone', 'saveData'
         ],
         pwaHead: [
-          { tagName: 'link', rel: 'icon', href: '/img/icons/logo-512x512.png' },
-          { tagName: 'link', rel: 'manifest', href: require.resolve('./static/manifest.json') },
+          { tagName: 'link', rel: 'icon', href: '/img/icons/android/android-chrome-192x192.png' },
+          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
           { tagName: 'link', rel: 'apple-touch-icon', href: '/img/icons/ios/apple-touch-icon.png' },
           { tagName: 'link', rel: 'mask-icon', href: '/img/icons/safari-pinned-tab.svg', color: '#748ad5' },
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
