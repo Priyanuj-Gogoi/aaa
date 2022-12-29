@@ -11,10 +11,10 @@ So, i have decided to make a better version of the current one.
 Visit https://bdfd-docs.netlify.app to preview the current docs progress
 
 ### To-do
-- [ ] Syntax Highlighting
+- [ ] Syntax Highlighting (In progress)
 - [x] Favicons
 - [ ] Docs
-- [ ] API
+- [ ] API (In progress)
 - [ ] Translations
 - [x] Web app
 - [x] SEO
