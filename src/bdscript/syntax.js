@@ -1,5 +1,5 @@
 export default {
-  'bds-escaper': [
+  'bds-escape': [
     /\\[\\\];]/,
     /%(?:ESCAPED|{(?:DOL|-SEMICOL-)})%/
   ],
@@ -62,7 +62,7 @@ export default {
     'greedy': true
   },
     /\$(?:newModal|(?:ad{2}TextI|i)nput)/,
-    /\$(?:removeComponent|defer|customID)/
+    /\$(?:removeComponent|defer|customID|ephemeral)/
   ],
   'bds-str-manip': [
     /\$(?:getTextSplit(?:Length|Index)|(?:join|edit)SplitText|removeSplitTextElement|splitText|textSplit)/,
@@ -83,5 +83,73 @@ export default {
   'bds-random': {
     'pattern': /\$random(?:Chan{2}elID|Mention|String|Text|User(?:ID)?)?/,
     'greedy': true
-  }
+  },
+  'bds-bdl': /\$botList(?:Description|Hide)/,
+  'bds-nomention': /\$nomention/,
+  'bds-reaction': {
+    'pattern': /\$(?:ad{2}(?:Cmd)?|clear|get)Reactions/,
+    'greedy': true
+  },
+  'bds-count': [{
+    pattern: /\$(?:(?:slashC|c)om{2}ands|(?:al{2}M|m)embers|chan{2}el|bo{2}st)Count/,
+    greedy: true
+  },
+    /\$(?:variables|server|role|emote|char|category|arg)Count/
+  ],
+  'bds-bot': [{
+    pattern: /\$botCom{2}ands/,
+    greedy: true
+  },
+    /\$(?:bot(?:ID|Leave|Node)|getBotInvite|shardID)/
+  ],
+  'bds-leaderboard': /\$(?:(?:globalUser|server|user)Leaderboard|getLeaderboardValue)/,
+  'bds-slash': [{
+    pattern: /\$(?:ap{2}endOptionSug{2}estion|(?:un)?registerGuildCom{2}ands)/,
+    greedy: true
+  },
+    /\$autoCompleteOption(?:Nam|Valu)e/
+  ],
+  'bds-ban': /\$(?:(?:un)?ban(?:ID)?|getBanReason)/,
+  'bds-kick': /\$kick(?:Mention)?/,
+  'bds-timeout': /\$(?:un)?timeout/,
+  'bds-server': /\$server(?:Description|Emojis|Icon|Info|Name(?:s)?|Region|VerificationLevel|getServerInvite)/,
+  'bds-channel': {
+    pattern: /\$(chan{2}el(?:(?:Nam|Typ)e|Position|Topic)|(?:(?:creat|us)e|modify)Chan{2}el|deleteChan{2}els(?:ByName)?|editChan{2}elPerms)/,
+    greedy: true
+  },
+  'bds-role': /\$(?:(?:color|(?:creat|delet)e)Role|getRoleColor|modifyRole(?:Perms)?|role(?:Grant|Info|Name(?:s)?)|Position)/,
+  'bds-emoji': [{
+    pattern: /\$ad{2}Emoji/,
+    greedy: true
+  },
+    /\$customEmoji/
+  ],
+  'bds-ticket': /\$(?:new|close)Ticket/,
+  'bds-error': {
+    pattern: /\$(?:embedS|s)up{2}res{2}Er{2}ors/,
+    greedy: true
+  },
+  'bds-misc': [{
+    pattern: /\$(?:optOf{2}|t{2}s|changeCo{2}ldownTime)/,
+    greedy: true
+  },
+    /\$(?:(?:alternativePars|disableSpecialEscap)ing|stop|awaitFunc|scriptLanguage|unescape|ignoreLinks|trimContent)/
+  ],
+  'bds-thread': [{
+    pattern: /\$threadAd{2}Member/,
+    greedy: true
+  },
+    /\$(?:(?:star|edi)tThread|threadRemoveMember)/
+  ],
+  'bds-eval': /\$eval/,
+  'bds-message': [{
+    pattern: /\$(?:(?:noMention|edit|get|(?:un)?pin|publish|send(?:Embed)?|delete|chan{2}elSend)M|m)es{2}age/,
+    greedy: true
+  },
+    /\$(edit(?:Embed)?|delete|reply)In/,
+    /\$(?:al{2}ow(?:Mention|(?:Role|User)Mentions)|botTyping|reply)/
+  ],
+  'bds-user': /\$(?:user(?:(?:Server)?Avatar|Info|Perms|Roles)|discriminator|get(?:User|Custom)Status|(?:user|nick)name|hypesquad|changeUsername(?:WithID)?)/,
+  'bds-comment': /\$c\[[\s\S]*?\]/,
+  'bds-util': /\$(?:clear|deleteCommand|dm|getEmbedData|getInviteInfo|removeContains|removeLinks|slowmode|url)/
 }
