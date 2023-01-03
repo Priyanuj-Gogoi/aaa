@@ -1,3 +1,8 @@
+/*
+  BDScript Language Syntax Definition
+  Up-to-dated with December 2022 Version
+*/
+
 export default {
   'bds-escape': [
     /\\[\\\];]/,
@@ -12,7 +17,7 @@ export default {
     /\$(?:[sg]etV|v)ar/
   ],
   'bds-callback': [{
-    pattern: /\$(?:awaitedCom{2}and(?:Er{2}or)|on(?:Mes{2}ageDelete|BanAd{2}))/,
+    pattern: /\$(?:awaitedCom{2}and(?:Er{2}or)?|on(?:Mes{2}ageDelete|BanAd{2}))/,
     greedy: true
   },
     /\$on(?:Joined|(?:Leav|AutoComplet|BanRemov)e|Interaction)/
@@ -23,10 +28,15 @@ export default {
   },
     /\$(?:alwaysReply|reaction)/
   ],
-  'bds-premium-function': /\$(?:awaitReactions|customImage|ignoreTriggerCase|sendNotification|usedEmoji)/,
+  'bds-premium-function': [{
+    pattern: /\$ignoreTrig{2}erCase/,
+    greedy: true
+  },
+    /\$(?:awaitReactions|customImage|sendNotification|usedEmoji)/
+  ],
   'bds-http': {
-    'pattern': /\$ht{2}p(?:(?:Get(?:Header)?|(?:Ad{2}|Remove)Header)|P(?:ost|ut|atch)|Delete|Result|Status)/,
-    'greedy': true
+    pattern: /\$ht{2}p(?(?:Ad{2}|Remove|Get)Header|P(?:(?:os|u)t|atch)|Delete|(?:Ge|Resul)t|Status)/,
+    greedy: true
   },
   'bds-if': /\$(?:(?:end)?if|else(?:if)?)/,
   'bds-async': /\$(?:endasync|a(?:wait|sync))/,
