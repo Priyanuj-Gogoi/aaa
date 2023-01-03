@@ -35,7 +35,7 @@ export default {
     /\$(?:awaitReactions|customImage|sendNotification|usedEmoji)/
   ],
   'bds-http': {
-    pattern: /\$ht{2}p(?(?:Ad{2}|Remove|Get)Header|P(?:(?:os|u)t|atch)|Delete|(?:Ge|Resul)t|Status)/,
+    pattern: /\$ht{2}p(?:(?:Ad{2}|Remove|Get)Header|P(?:(?:os|u)t|atch)|Delete|(?:Ge|Resul)t|Status)/,
     greedy: true
   },
   'bds-if': /\$(?:(?:end)?if|else(?:if)?)/,
