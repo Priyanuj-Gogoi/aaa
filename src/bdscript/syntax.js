@@ -5,17 +5,24 @@ export default {
   ],
   'bds-punctuation': /[\[\;\]]/,
   'bds-variable': [{
-    'pattern': /\$(?:v|[gs]et(?:Chan{2}el|(?:Serv|Us)er)?V)ar/,
-    'greedy': true
-  }, {
-    'pattern': /\$reset(?:Chan{2}el|(?:Serv|Us)er)Var/,
-    'greedy': true
-  }],
-  'bds-callback': {
-    'pattern': /\$(?:awaitedCom{2}and(?:Er{2}or)?|on(?:AutoComplete|Joined|Leave|Interaction|Mes{2}ageDelete|Ban(?:Ad{2}|Remove)))/,
-    'greedy': true
+    pattern: /\$(?:s|g|res)etChan{2}elVar/,
+    greedy: true
   },
-  'bds-premium-callback': /\$(?:alwaysReply|messageContains|reaction)/,
+    /\$(?:s|g|res)et(?:Serv|Us)erVar/,
+    /\$(?:[sg]etV|v)ar/
+  ],
+  'bds-callback': [{
+    pattern: /\$(?:awaitedCom{2}and(?:Er{2}or)|on(?:Mes{2}ageDelete|BanAd{2}))/,
+    greedy: true
+  },
+    /\$on(?:Joined|(?:Leav|AutoComplet|BanRemov)e|Interaction)/
+  ],
+  'bds-premium-callback': [{
+    pattern: /\$mes{2}ageContains/,
+    greedy: true
+  },
+    /\$(?:alwaysReply|reaction)/
+  ],
   'bds-premium-function': /\$(?:awaitReactions|customImage|ignoreTriggerCase|sendNotification|usedEmoji)/,
   'bds-http': {
     'pattern': /\$ht{2}p(?:(?:Get(?:Header)?|(?:Ad{2}|Remove)Header)|P(?:ost|ut|atch)|Delete|Result|Status)/,
