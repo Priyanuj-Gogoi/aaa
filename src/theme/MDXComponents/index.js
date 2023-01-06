@@ -9,6 +9,9 @@ import MDXUl from '@theme/MDXComponents/Ul';
 import MDXImg from '@theme/MDXComponents/Img';
 import Admonition from '@theme/Admonition';
 import Mermaid from '@theme/Mermaid';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 const MDXComponents = {
   head: MDXHead,
   code: MDXCode,
@@ -25,5 +28,8 @@ const MDXComponents = {
   h6: (props) => <MDXHeading as="h6" {...props} />,
   admonition: Admonition,
   mermaid: Mermaid,
+  Tabs,
+  TabItem,
 };
+
 export default MDXComponents;

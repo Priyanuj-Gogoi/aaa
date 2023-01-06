@@ -1,6 +1,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const webpack = require('webpack');
+
 const { light } = require('./src/bdscript/highlight')
 
 for (const e of light) {
@@ -178,6 +180,26 @@ module.exports = {
         ]
       }
     ],
+    function WebpackPlugin(context, options) {
+      return {
+        name: 'plugin-configure-webpack',
+        configureWebpack() {
+          return {
+            resolve: {
+              fallback: {
+                stream: require.resolve('stream-browserify'),
+                buffer: require.resolve('buffer/'),
+              },
+            },
+            plugins: [
+              new webpack.ProvidePlugin({
+                Buffer: ['buffer', 'Buffer'],
+              }),
+            ],
+          };
+        },
+      };
+    },
   ],
   presets: [
     [

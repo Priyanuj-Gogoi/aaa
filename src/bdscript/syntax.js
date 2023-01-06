@@ -1,63 +1,512 @@
-export default {
+const regex = require('regexgen');
+
+module.exports = {
   'comment': /\$c\[[\s\S]*?\]/,
-  'bds-escape': /(?:\\[\\\];]|%(?:ESCAPED|{(?:DOL|-SEMICOL-)})%)/,
-  'bds-punctuation': /[\[\;\]]/,
-  'bds-callback': [
-    /\$awaitedCommand(?:Error)?/,
-    /\$on(?:Joined|Leave|AutoComplete|BanAdd|BanRemove|MessageDelete|Interaction)/
-  ],
-  'bds-premium-callback': /\$(?:alwaysReply|messageContains|reaction)/,
-  'bds-premium-function': /\$(?:awaitReactions|customImage|sendNotification|usedEmoji|ignoreTriggerCase)/,
-  'bds-deprecated': /\$(?:modifyChannelPerms|channelIDFromName|giveRole|takeRole|unmute|mute|userJoinedDiscord)/,
-  'bds-http': /\$http(?:AddHeader|RemoveHeader|GetHeader|Get|Post|Put|Patch|Delete|Result|Status)/,
-  'bds-misc': /\$(?:optOff|tts|changeCooldownTime|alternativeParsing|disableSpecialEscaping|stop|awaitFunc|scriptLanguage|unescape|ignoreLinks|trimContent|disableInnerSpaceRemoval)/,
-  'bds-user': /\$(?:user(?:ServerAvatar|Avatar|Info|Perms|Roles)|authorAvatar|discriminator|get(?:User|Custom)Status|username|nickname|hypesquad|changeUsername(?:WithID)?)/,
-  'bds-id': /\$(?:authorID|authorOfMessage|botOwnerID|categoryID|channelID|dmChannelID|guildID|messageID|repliedMessageID|parentID|roleID|slashID|userID|findChannel|findUser|findRole|highestRoleWithPerms|highestRole|lowestRoleWithPerms|lowestRole|mentionedChannels|mentionedRoles|mentioned|serverOwner)/,
-  'bds-if': /\$(?:if|elseif|else|endif)/,
-  'bds-async': /\$(?:async|endasync|await)/,
-  'bds-try': /\$(?:try|catch|error|endtry)/,
-  'bds-role': /\$(?:(?:color|create|delete)Role|getRoleColor|modifyRole(?:Perms)?|role(?:Grant|Info|Name(?:s)?|Position))/,
-  'bds-embed': /\$(?:authorIcon|authorURL|author|description|image|color|thumbnail|title|addField|addTimestamp|embeddedURL|footerIcon|footer)/,
-  'bds-webhook': /\$webhook(?:AvatarURL|Create|Color|Content|Delete|Description|Footer|Send|Title|Username)/,
-  'bds-timeout': /\$(?:un)?timeout/,
-  'bds-time': /\$(?:day|date|getCooldown|getTimestamp|uptime|time|executionTime|hostingExpireTime|premiumExpireTime|creationDate|minute|second|hour|month|ping|year|userJoined)/,
-  'bds-math': /\$(?:sort|su[mb]|max|min|enableDecimals|divide|multi|modulo|calculate|round|numberSeparator)/,
-  'bds-json': /\$json(?:ArrayAppend|ArrayCount|Array|Clear|Exists|Parse|Pretty|Set|Stringify|Unset)?/,
-  'bds-limiter': [
-    /\$only(?:IfMessageContains|If|BotChannelPerms|BotPerms|Perms|Admin|NSFW|ForRoleIDs|ForRoles|ForIDs|ForCategories|ForServers|ForUsers|ForChannels)/,
-    /\$(?:serverCooldown|globalCooldown|cooldown|ignoreChannels|varExistError|argsCheck|blackList(?:RolesIDs|Roles|IDs|Servers|Users)|enabled)/
-  ],
-  'bds-component': /\$(?:addButton|editButton|removeButtons|addSelectMenuOption|editSelectMenuOption|newSelectMenu|editSelectMenu|newModal|addTextInput|input|removeComponent|defer|customID|ephemeral)/,
-  'bds-str-manip': /\$(?:getTextSplitLength|getTextSplitIndex|joinSplitText|editSplitText|removeSplitTextElement|splitText|textSplit|replaceText|cropText|repeatMessage|trimSpace|toUppercase|toLowercase|toTitleCase)/,
-  'bds-boolean': [
-    /\$is(?:Admin|Banned|Bot|Boolean|Hoisted|Mentionable|NSFW|Number|Slash|TimedOut|UserDMEnabled|ValidHex)/,
-    /\$(?:channelExists|serverChannelExists|guildExists|roleExists|userExists|varExists|userReacted|or|and|hasRole|checkContains|checkCondition|checkUserPerms)/,
-  ],
-  'bds-random': /\$random(?:ChannelID|Mention|String|Text|UserID|User)?/,
-  'bds-bdl': /\$botList(?:Description|Hide)/,
+
+  'bds-escape': regex([
+    '\\\\',
+    '\\;',
+    '\\]',
+    '%{-SEMICOL-}%',
+    '%{DOL}%',
+    '%ESCAPED%'
+  ]),
+
+  'bds-punctuation': regex([
+    ';',
+    '[',
+    ']'
+  ]),
+
+  'bds-callback': regex([
+    '$awaitedCommand',
+    '$awaitedCommandError',
+    '$onJoined',
+    '$onLeave',
+    '$onAutoComplete',
+    '$onBanAdd',
+    '$onBanRemove',
+    '$onMessageDelete',
+    '$onInteraction'
+  ]),
+
+  'bds-premium-callback': regex([
+    '$alwaysReply',
+    '$messageContains',
+    '$reaction'
+  ]),
+
+  'bds-premium-function': regex([
+    '$awaitReactions',
+    '$customImage',
+    '$sendNotification',
+    '$usedEmoji',
+    '$ignoreTriggerCase'
+  ]),
+
+  'bds-deprecated': regex([
+    '$modifyChannelPerms',
+    '$channelIDFromName',
+    '$giveRole',
+    '$takeRole',
+    '$unmute',
+    '$mute',
+    '$userJoinedDiscord'
+  ]),
+
+  'bds-http': regex([
+    '$httpAddHeader',
+    '$httpGetHeader',
+    '$httpRemoveHeader',
+    '$httpGet',
+    '$httpPost',
+    '$httpPut',
+    '$httpPatch',
+    '$httpDelete',
+    '$httpResult',
+    '$httpStatus'
+  ]),
+
+  'bds-misc': regex([
+    '$optOff',
+    '$tts',
+    '$changeCooldownTime',
+    '$alternativeParsing',
+    '$disableSpecialEscaping',
+    '$stop',
+    '$awaitFunc',
+    '$scriptLanguage',
+    '$unescape',
+    '$ignoreLinks',
+    '$trimContent',
+    '$disableInnerSpaceRemoval'
+  ]),
+
+  'bds-user': regex([
+    '$userServerAvatar',
+    '$userAvatar',
+    '$userInfo',
+    '$userPerms',
+    '$userRoles',
+    '$authorAvatar',
+    '$discriminator',
+    '$getUserStatus',
+    '$getCustomStatus',
+    '$username',
+    '$nickname',
+    '$hypesquad',
+    '$changeUsernameWithID',
+    '$changeUsername'
+  ]),
+
+  'bds-id': regex([
+    '$authorID',
+    '$authorOfMessage',
+    '$botOwnerID',
+    '$categoryID',
+    '$channelID',
+    '$dmChannelID',
+    '$guildID',
+    '$messageID',
+    '$repliedMessageID',
+    '$parentID',
+    '$roleID',
+    '$slashID',
+    '$userID',
+    '$findChannel',
+    '$findUser',
+    '$findRole',
+    '$highestRoleWithPerms',
+    '$highestRole',
+    '$lowestRoleWithPerms',
+    '$lowestRole',
+    '$mentionedRoles',
+    '$mentionedChannels',
+    '$mentioned',
+    '$serverOwner'
+  ]),
+
+  'bds-if': regex([
+    '$if',
+    '$elseif',
+    '$else',
+    '$endif'
+  ]),
+
+  'bds-async': regex([
+    '$async',
+    '$endasync',
+    '$await'
+  ]),
+
+  'bds-try': regex([
+    '$try',
+    '$catch',
+    '$error',
+    '$endtry'
+  ]),
+
+  'bds-role': regex([
+    '$colorRole',
+    '$createRole',
+    '$deleteRole',
+    '$getRoleColor',
+    '$modifyRolePerms',
+    '$modifyRole',
+    '$roleGrant',
+    '$roleInfo',
+    '$roleNames',
+    '$roleName',
+    '$rolePosition'
+  ]),
+
+  'bds-embed': regex([
+    '$authorIcon',
+    '$authorURL',
+    '$author',
+    '$description',
+    '$image',
+    '$color',
+    '$thumbnail',
+    '$title',
+    '$addField',
+    '$addTimestamp',
+    '$embbeddURL',
+    '$footerIcon',
+    '$footer'
+  ]),
+
+  'bds-webhook': regex([
+    '$webhookAvatarURL',
+    '$webhookCreate',
+    '$webhookColor',
+    '$webhookContent',
+    '$webhookDelete',
+    '$webhookDescription',
+    '$webhookFooter',
+    '$webhookSend',
+    '$webhookTitle',
+    '$webhookUsername'
+  ]),
+
+  'bds-timeout': regex([
+    '$timeout',
+    '$untimeout'
+  ]),
+
+  'bds-time': regex([
+    '$date',
+    '$day',
+    '$getCooldown',
+    '$getTimestamp',
+    '$uptime',
+    '$time',
+    '$executionTime',
+    '$hostingExpireTime',
+    '$premiumExpireTime',
+    '$creationDate',
+    '$minute',
+    '$hour',
+    '$second',
+    '$month',
+    '$ping',
+    '$year',
+    '$userJoined'
+  ]),
+
+  'bds-math': regex([
+    '$sort',
+    '$sum',
+    '$sub',
+    '$max',
+    '$min',
+    '$enableDecimals',
+    '$divide',
+    '$multi',
+    '$modulo',
+    '$calculate',
+    '$round',
+    '$numberSeparator'
+  ]),
+
+  'bds-json': regex([
+    '$jsonArrayAppend',
+    '$jsonArrayCount',
+    '$jsonArray',
+    '$jsonClear',
+    '$jsonExists',
+    '$jsonParse',
+    '$jsonPretty',
+    '$jsonSet',
+    '$jsonStringify',
+    '$jsonUnset',
+    '$json'
+  ]),
+
+  'bds-limiter': regex([
+    '$onlyIfMessageContains',
+    '$onlyIf',
+    '$onlyBotChannelPerms',
+    '$onlyBotPerms',
+    '$onlyPerms',
+    '$onlyAdmin',
+    '$onlyNSFW',
+    '$onlyForRoleIDs',
+    '$onlyForRoles',
+    '$onlyForIDs',
+    '$onlyForCategories',
+    '$onlyForServers',
+    '$onlyForUsers',
+    '$onlyForChannels',
+    '$serverCooldown',
+    '$globalCooldown',
+    '$cooldown',
+    '$ignoreChannels',
+    '$varExistError',
+    '$argsCheck',
+    '$blackListRolesIDs',
+    '$blackListRoles',
+    '$blackListIDs',
+    '$blackListServers',
+    '$blackListUsers',
+    '$enabled'
+  ]),
+
+  'bds-component': regex([
+    '$addButton',
+    '$editButton',
+    '$removeButtons',
+    '$addSelectMenuOption',
+    '$editSelectMenuOption',
+    '$newSelectMenu',
+    '$editSelectMenu',
+    '$newModal',
+    '$addTextInput',
+    '$input',
+    '$removeComponent',
+    '$defer',
+    '$customID',
+    '$ephemeral'
+  ]),
+
+  'bds-str-manip': regex([
+    '$getTextSplitLength',
+    '$getTextSplitIndex',
+    '$joinSplitText',
+    '$editSplitText',
+    '$removeSplitTextElement',
+    '$splitText',
+    '$textSplit',
+    '$replaceText',
+    '$cropText',
+    '$repeatMessage',
+    '$trimSpace',
+    '$toUppercase',
+    '$toTitleCase',
+    '$toLowercase'
+  ]),
+
+  'bds-boolean': regex([
+    '$isAdmin',
+    '$isBanned',
+    '$isBot',
+    '$isBoolean',
+    '$isHoisted',
+    '$isMentionable',
+    '$isNSFW',
+    '$isNumber',
+    '$isSlash',
+    '$isTimedOut',
+    '$isUserDMEnabled',
+    '$isValidHex',
+    '$channelExists',
+    '$serverChannelExists',
+    '$guildExists',
+    '$roleExists',
+    '$userExists',
+    '$varExists',
+    '$userReacted',
+    '$or',
+    '$and',
+    '$hasRole',
+    '$checkContains',
+    '$checkCondition',
+    '$checkUserPerms'
+  ]),
+
+  'bds-random': regex([
+    '$randomChannelID',
+    '$randomMention',
+    '$randomString',
+    '$randomText',
+    '$randomUserID',
+    '$randomUser',
+    'random'
+  ]),
+
+  'bds-bdl': regex([
+    '$botListDescription',
+    '$botListHide'
+  ]),
+
   'bds-nomention': /\$nomention/,
-  'bds-reaction': /\$(?:add(?:Cmd)?|clear|get)Reactions/,
-  'bds-count': /\$(?:slashCommands|commands|allMembers|members|channel|boost|variables|server|role|emote|char|category|arg)Count/,
-  'bds-bot': /\$(?:botID|botLeave|botNode|botCommands|getBotInvite|shardID)/,
-  'bds-leaderboard': /\$(?:(?:globalUser|server|user)Leaderboard|getLeaderboardValue)/,
-  'bds-slash': /\$(?:appendOptionSuggestion|(?:un)?registerGuildCommands|autoCompleteOption(?:Name|Value))/,
-  'bds-ban': /\$(?:(?:un)?ban(?:ID)?|getBanReason)/,
-  'bds-kick': /\$kick(?:Mention)?/,
-  'bds-server': /\$(?:server(?:Description|Emojis|Icon|Info|Name(?:s)?|Region|VerificationLvl)|getServerInvite)/,
-  'bds-channel': /\$(?:channel(?:Name|Type|Position|Topic)|(?:create|use|modify)Channel|deleteChannels(?:ByName)?|editChannelPerms)/,
-  'bds-emoji': /\$(?:custom|add)Emoji/,
-  'bds-ticket': /\$(?:new|close)Ticket/,
-  'bds-error': /\$(?:embedSuppressErrors|suppressErrors)/,
-  'bds-thread': /\$(?:startThread|editThread|threadAddMember|threadRemoveMember)/,
+
+  'bds-reaction': regex([
+    '$addReactions',
+    '$addCmdReactions',
+    '$clearReactions',
+    '$getReactions'
+  ]),
+
+  'bds-count': regex([
+    '$slashCommandsCount',
+    '$commandsCount',
+    '$allMembersCount',
+    '$membersCount',
+    '$channelCount',
+    '$boostCount',
+    '$variablesCount',
+    '$serverCount',
+    '$roleCount',
+    '$emoteCount',
+    '$charCount',
+    '$categoryCount',
+    '$argCount'
+  ]),
+
+  'bds-bot': regex([
+    '$botID',
+    '$botLeave',
+    '$botNode',
+    '$botCommands',
+    '$getBotInvite',
+    '$shardID'
+  ]),
+
+  'bds-leaderboard': regex([
+    '$globalUserLeaderboard',
+    '$serverLeaderboard',
+    '$userLeaderboard',
+    '$getLeaderboardValue'
+  ]),
+
+  'bds-slash': regex([
+    '$appendOptionSuggestion',
+    '$unregisterGuildCommands',
+    '$registerGuildCommands',
+    '$autoCompleteOptionName',
+    '$autoCompleteOptionValue'
+  ]),
+
+  'bds-ban': regex([
+    '$unban',
+    '$ban',
+    '$unbanID',
+    '$banID',
+    '$getBanReason'
+  ]),
+
+  'bds-kick': regex([
+    '$kick',
+    '$kickMention'
+  ]),
+
+  'bds-server': regex([
+    '$serverDescription',
+    '$serverEmojis',
+    '$serverIcon',
+    '$serverInfo',
+    '$serverNames',
+    '$serverName',
+    '$serverRegion',
+    '$serverVerificationLvl',
+    '$getServerInvite'
+  ]),
+
+  'bds-channel': regex([
+    '$channelName',
+    '$channelType',
+    '$channelPosition',
+    '$channelTopic',
+    '$createChannel',
+    '$useChannel',
+    '$modifyChannel',
+    '$deleteChannels',
+    '$deleteChannelsByName',
+    '$editChannelPerms'
+  ]),
+
+  'bds-emoji': regex([
+    '$customEmoji',
+    '$addEmoji'
+  ]),
+
+  'bds-ticket': regex([
+    '$newTicket',
+    '$closeTicket'
+  ]),
+
+  'bds-error': regex([
+    '$suppressErrors',
+    '$embedSuppressErrors'
+  ]),
+
+  'bds-thread': regex([
+    '$startThread',
+    '$editThread',
+    '$threadAddMember',
+    '$threadRemoveMember'
+  ]),
+
   'bds-eval': /\$eval/,
-  'bds-message': [
-    /\$(?:(?:noMention|edit|get|unpin|pin|publish|send(?:Embed)?|delete|channelSend)M|m)essage/,
-    /\$(?:editEmbed|edit|delete|reply)In/,
-    /\$(?:allow(?:Mention|UserMentions|RoleMentions)|botTyping|reply)/
-  ],
-  'bds-util': /\$(?:clear|deletecommand|dm|getEmbedData|getInviteInfo|removeContains|removeLinks|slowmode|url)/,
-  'bds-variable': [
-    /\$(?:[sg]|res)et(?:Channel|Server|User)Var/,
-    /\$(?:[sg]etVar|var)/
-  ],
+
+  'bds-message': regex([
+    '$noMentionMessage',
+    '$editMessage',
+    '$getMessage',
+    '$unpinMessage',
+    '$pinMessage',
+    '$publishMessage',
+    '$sendEmbedMessage',
+    '$sendMessage',
+    '$deleteMessage',
+    '$channelSendMessage',
+    '$message',
+    '$editEmbedIn',
+    '$editIn',
+    '$deleteIn',
+    '$replyIn',
+    '$allowMention',
+    '$allowUserMentions',
+    '$allowRoleMentions',
+    '$botTyping',
+    '$reply'
+  ]),
+
+  'bds-util': regex([
+    '$clear',
+    '$deletecommand',
+    '$dm',
+    '$getEmbedData',
+    '$getInviteInfo',
+    '$removeContains',
+    '$removeLinks',
+    '$slowmode',
+    '$url'
+  ]),
+
+  'bds-variable': regex([
+    '$var',
+    '$setVar',
+    '$setChannelVar',
+    '$setUserVar',
+    '$setServerVar',
+    '$getVar',
+    '$getChannelVar',
+    '$getUserVar',
+    '$getServerVar',
+    '$resetServerVar',
+    '$resetChannelVar',
+    '$resetUserVar'
+  ]),
 };

@@ -1,5 +1,4 @@
 import siteConfig from '@generated/docusaurus.config';
-import bdscript from "../bdscript/syntax";
 
 export default function prismIncludeLanguages(PrismObject) {
   const {
@@ -7,6 +6,8 @@ export default function prismIncludeLanguages(PrismObject) {
   } = siteConfig;
   const { additionalLanguages } = prism;
 
+  const bdscript = require('../bdscript/syntax');
+  
   PrismObject.languages.bdscript = bdscript;
   PrismObject.languages.bds = bdscript;
 
