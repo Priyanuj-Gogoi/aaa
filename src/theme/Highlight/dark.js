@@ -1,4 +1,4 @@
-const light = [
+module.exports = [
   {
     types: ['bds-escape'],
     style: {
@@ -215,6 +215,4 @@ const light = [
       color: '#404258'
     }
   }
-]
-
-module.exports = { light }
+];

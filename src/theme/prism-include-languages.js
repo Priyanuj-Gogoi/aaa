@@ -6,8 +6,8 @@ export default function prismIncludeLanguages(PrismObject) {
   } = siteConfig;
   const { additionalLanguages } = prism;
 
-  const bdscript = require('../bdscript/syntax');
-  
+  const bdscript = require('./BDScript');
+
   PrismObject.languages.bdscript = bdscript;
   PrismObject.languages.bds = bdscript;
 
