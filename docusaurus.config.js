@@ -69,16 +69,31 @@ module.exports = {
         {
           title: 'Community',
           items: [
-            { label: 'Discord', href: 'https://discord.com/servers/bot-designer-for-discord-official-server-566363823137882154' },
-            { label: 'Reddit', href: 'https://reddit.com/r/DiscordBotDesigner' }
+            {
+              label: 'Discord',
+              href: 'https://discord.com/servers/bot-designer-for-discord-official-server-566363823137882154'
+            },
+            {
+              label: 'Reddit',
+              href: 'https://reddit.com/r/DiscordBotDesigner'
+            }
           ]
         },
         {
           title: 'External Links',
           items: [
-            { label: 'Web App', href: 'https://botdesignerdiscord.com/app' },
-            { label: 'Android App', href: 'https://play.google.com/store/apps/details?id=com.jakubtomana.discordbotdesinger' },
-            { label: 'iOS App', href: 'https://apps.apple.com/us/app/bot-designer-for-discord/id1495536477' }
+            {
+              label: 'Web App',
+              href: 'https://botdesignerdiscord.com/app'
+            },
+            {
+              label: 'Android App',
+              href: 'https://play.google.com/store/apps/details?id=com.jakubtomana.discordbotdesinger'
+            },
+            {
+              label: 'iOS App',
+              href: 'https://apps.apple.com/us/app/bot-designer-for-discord/id1495536477'
+            }
           ]
         }
       ],
