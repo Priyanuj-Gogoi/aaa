@@ -4,7 +4,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const webpack = require('webpack');
 
 const light = require('./src/theme/Highlight/light');
-const dark = require('./site/theme/Highlight/dark');
+const dark = require('./src/theme/Highlight/dark');
 
 for (const e of light) {
   lightCodeTheme.styles.push(e);
