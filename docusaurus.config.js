@@ -129,22 +129,58 @@ module.exports = {
       ]
     },
     metadata: [
-      { name: 'title', content: 'BDFD Docs' },
-      { name: 'description', content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.' },
-      { name: 'keywords', content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs' },
-
-      { name: 'application-name', content: 'BDFD Docs' },
-      { name: 'apple-mobile-web-app-title', content: 'BDFD Docs' },
-
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: 'BDFD Docs' },
-      { name: 'twitter:description', content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.' },
-      { name: 'twitter:url', content: url },
-
-      { name: 'og:type', content: 'website' },
-      { name: 'og:title', content: 'BDFD Docs' },
-      { name: 'og:description', content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.' },
-      { name: 'og:url', content: url }
+      {
+        name: 'title',
+        content: 'BDFD Docs'
+      },
+      {
+        name: 'description',
+        content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.'
+      },
+      {
+        name: 'keywords',
+        content: 'bdfd, bot designer for discord, discord, discord bot, bdfd wiki, bdfd docs'
+      },
+      {
+        name: 'application-name',
+        content: 'BDFD Docs'
+      },
+      {
+        name: 'apple-mobile-web-app-title',
+        content: 'BDFD Docs'
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary'
+      },
+      {
+        name: 'twitter:title',
+        content: 'BDFD Docs'
+      },
+      {
+        name: 'twitter:description',
+        content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.'
+      },
+      {
+        name: 'twitter:url',
+        content: url
+      },
+      {
+        name: 'og:type',
+        content: 'website'
+      },
+      {
+        name: 'og:title',
+        content: 'BDFD Docs'
+      },
+      {
+        name: 'og:description',
+        content: 'Unofficial documentation of BDFD functions, callbacks, features and lots more.'
+      },
+      {
+        name: 'og:url',
+        content: url
+      }
     ],
     headTags: [
       { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' } },
@@ -178,7 +214,7 @@ module.exports = {
           { tagName: 'link', rel: 'mask-icon', href: '/img/icons/safari-pinned-tab.svg', color: '#748ad5' },
 
           { tagName: 'meta', name: 'theme-color', content: '#748ad5' },
-          { tagName: 'meta', name: 'apple-mobile-web-app-capable', content: 'yes' },
+          { tagName: 'meta', name: 'mobile-web-app-capable', content: 'yes' },
           { tagName: 'meta', name: 'apple-mobile-web-app-status-bar-style', content: '#748ad5' },
           { tagName: 'meta', name: 'msapplication-TileImage', content: '/img/icons/ms-tile/mstile-144x144.png' },
           { tagName: 'meta', name: 'msapplication-TileColor', content: '#748ad5' }
