@@ -11,8 +11,8 @@ So, i have decided to make a better version of the current one.
 Visit https://bdfd-docs.netlify.app to preview the current docs progress
 
 ### Next Progress
-- [ ] Syntax Highlighting (In progress)
-- [ ] API (In progress)
-- [ ] Docs
-- [ ] Translations
-- [ ] Update overall website design 
+- Syntax Highlighting (Partially done)
+- API (In progress)
+- Docs
+- Translations
+- Update overall website design 
