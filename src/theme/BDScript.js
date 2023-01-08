@@ -81,6 +81,7 @@ const syntax = {
   'bds-user': regex([
     '$userServerAvatar',
     '$userAvatar',
+    '$userBanner',
     '$userInfo',
     '$userPerms',
     '$userRoles',
@@ -312,6 +313,7 @@ const syntax = {
     '$isNSFW',
     '$isNumber',
     '$isSlash',
+    '$isTicket',
     '$isTimedOut',
     '$isUserDMEnabled',
     '$isValidHex',
@@ -337,7 +339,10 @@ const syntax = {
     '$randomText',
     '$randomUserID',
     '$randomUser',
-    'random'
+    '$randomGuildID',
+    '$randomRoleID',
+    '$randomCategoryID',
+    '$random',
   ]),
 
   'bds-bdl': regex([
@@ -420,9 +425,11 @@ const syntax = {
   ]),
 
   'bds-channel': regex([
+    '$categoryChannels',
     '$channelName',
     '$channelType',
     '$channelPosition',
+    '$channelNames',
     '$channelTopic',
     '$createChannel',
     '$useChannel',
