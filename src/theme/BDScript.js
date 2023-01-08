@@ -1,7 +1,8 @@
 const regex = require('regexgen');
 
 const syntax = {
-  'comment': /\$c\[[\s\S]*?\]/,
+  // This regex is not bad...ik
+  'comment': /\$c\[[\s\S]*?\] /,
 
   'bds-escape': regex([
     '\\\\',
