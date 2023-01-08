@@ -1,6 +1,6 @@
 const regex = require('regexgen');
 
-module.exports = {
+const syntax = {
   'comment': /\$c\[[\s\S]*?\]/,
 
   'bds-escape': regex([
@@ -12,11 +12,7 @@ module.exports = {
     '%ESCAPED%'
   ]),
 
-  'bds-punctuation': regex([
-    ';',
-    '[',
-    ']'
-  ]),
+  'bds-punctuation': /[;\[\]]/,
 
   'bds-callback': regex([
     '$awaitedCommand',
@@ -510,3 +506,5 @@ module.exports = {
     '$resetUserVar'
   ]),
 };
+
+module.exports = syntax;

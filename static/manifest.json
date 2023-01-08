@@ -1,13 +1,12 @@
 {
-  "name": "BDFD Docs",
-  "short_name": "BDFD Docs",
+  "name": "BDFD Wiki",
+  "short_name": "BDFD Wiki",
   "description": "Documentation of BDFD functions, callbacks, features and lots more.",
   "theme_color": "#748ad5",
   "background_color": "#748ad5",
   "display": "standalone",
   "scope": "./",
   "start_url": "./index.html",
-  "orientation": "portrait",
   "categories": [
     "education"
   ],

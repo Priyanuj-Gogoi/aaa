@@ -10,12 +10,9 @@ So, i have decided to make a better version of the current one.
 
 Visit https://bdfd-docs.netlify.app to preview the current docs progress
 
-### To-do
+### Next Progress
 - [ ] Syntax Highlighting (In progress)
-- [x] Favicons
-- [ ] Docs
 - [ ] API (In progress)
+- [ ] Docs
 - [ ] Translations
-- [x] Web app
-- [x] SEO
-- [ ] Update CSS
+- [ ] Update overall website design 
