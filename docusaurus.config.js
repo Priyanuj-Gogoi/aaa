@@ -24,9 +24,6 @@ module.exports = {
   favicon: '/favicon.ico',
   trailingSlash: false,
   noIndex: true,
-  markdown: {
-    mermaid: true
-  },
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
@@ -171,7 +168,6 @@ module.exports = {
       maxHeadingLevel: 4
     },
   },
-  themes: ['@docusaurus/theme-mermaid'],
   plugins: [
     'plugin-image-zoom',
     [

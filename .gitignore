@@ -15,12 +15,15 @@
 .env.test.local
 .env.production.local
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Lockfiles
 yarn.lock
 package-lock.json
 
-replit.nix
+# Replit
 .replit
+replit.nix
