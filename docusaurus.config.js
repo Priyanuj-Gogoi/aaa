@@ -1,5 +1,4 @@
-const lightCodeTheme = require('./src/theme/Highlight/light');
-const darkCodeTheme = require('./src/theme/Highlight/dark');
+const { light, dark } = require('./src/theme/CodeTheme');
 
 const webpack = require('webpack');
 
@@ -8,7 +7,7 @@ const github = process.env.REPOSITORY_URL;
 const url = process.env.URL;
 const branch = process.env.BRANCH;
 
-module.exports = {
+const config = {
   title: 'BDFD Docs',
   url: url,
   baseUrl: '/',
@@ -68,8 +67,8 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Priyanuj Gogoi<br>Built using Docusaurus`,
     },
     prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
+      theme: light,
+      darkTheme: dark,
       magicComments: [
         {
           className: 'theme-code-block-highlighted-line',
@@ -223,4 +222,6 @@ module.exports = {
       },
     ],
   ],
-}
+};
+
+module.exports = config;

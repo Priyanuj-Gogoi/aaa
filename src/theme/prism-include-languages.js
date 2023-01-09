@@ -1,20 +1,6 @@
-import siteConfig from '@generated/docusaurus.config';
 import bdscript from './BDScript.js';
 
-export default function prismIncludeLanguages(PrismObject) {
-  const {
-    themeConfig: { prism },
-  } = siteConfig;
-  const { additionalLanguages } = prism;
-
-  PrismObject.languages.bdscript = bdscript;
-  PrismObject.languages.bds = bdscript;
-
-  globalThis.Prism = PrismObject;
-
-  additionalLanguages.forEach((lang) => {
-    require(`prismjs/components/prism-${lang}`);
-  });
-
-  delete globalThis.Prism;
-}
+export default function prismIncludeLanguages(Prism) {
+  Prism.languages.bdscript = bdscript;
+  Prism.languages.bds = bdscript;
+};
