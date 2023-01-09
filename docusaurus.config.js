@@ -8,10 +8,6 @@ const github = process.env.REPOSITORY_URL;
 const url = process.env.URL;
 const branch = process.env.BRANCH;
 
-console.log(github)
-console.log(url)
-console.log(branch)
-
 module.exports = {
   title: 'BDFD Docs',
   url: url,
