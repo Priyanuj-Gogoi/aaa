@@ -3,8 +3,14 @@ const darkCodeTheme = require('./src/theme/Highlight/dark');
 
 const webpack = require('webpack');
 
-const github = 'https://github.com/priyanuj-gogoi/aaa';
-const url = 'https://bdfd-docs.netlify.app';
+// Netlify built-in variables
+const github = process.env.REPOSITORY_URL;
+const url = process.env.URL;
+const branch = process.env.BRANCH;
+
+console.log(github)
+console.log(url)
+console.log(branch)
 
 module.exports = {
   title: 'BDFD Docs',
@@ -206,7 +212,7 @@ module.exports = {
       {
         debug: true,
         docs: {
-          editUrl: github + '/edit/dev/',
+          editUrl: `${github}/edit/${branch}/`,
           routeBasePath: '/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,

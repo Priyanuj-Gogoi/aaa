@@ -7,9 +7,3 @@
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
-
-[[redirects]]
-  from = "/discord"
-  to = "https://discord.com/servers/bot-designer-for-discord-official-server-566363823137882154"
-  status = 200
-  force = true
