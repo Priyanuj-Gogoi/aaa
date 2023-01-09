@@ -1,18 +1,7 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('./src/theme/Highlight/light');
+const darkCodeTheme = require('./src/theme/Highlight/dark');
 
 const webpack = require('webpack');
-
-const light = require('./src/theme/Highlight/light');
-const dark = require('./src/theme/Highlight/dark');
-
-for (const e of light) {
-  lightCodeTheme.styles.push(e);
-};
-
-for (const e of dark) {
-  darkCodeTheme.styles.push(e);
-};
 
 const github = 'https://github.com/priyanuj-gogoi/aaa';
 const url = 'https://bdfd-docs.netlify.app';

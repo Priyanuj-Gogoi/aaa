@@ -1,8 +1,11 @@
-const regex = require('regexgen');
+import regex from 'regexgen';
 
 const syntax = {
-  // This regex is not bad...ik
-  'comment': /\$c\[[\s\S]*?\] /,
+  // This regex is bad...ik
+  'comment': {
+    pattern: /\$c\[[\s\S]*?\] /,
+    greedy: true
+  },
 
   'bds-escape': regex([
     '\\\\',
@@ -515,4 +518,4 @@ const syntax = {
   ]),
 };
 
-module.exports = syntax;
+export default syntax;
