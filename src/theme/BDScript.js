@@ -16,7 +16,7 @@ const syntax = {
     '%ESCAPED%'
   ]),
 
-  'bds-punctuation': /[;\[\]]/,
+  'punctuation': /[;\[\]]/,
 
   'bds-callback': regex([
     '$awaitedCommand',
@@ -27,21 +27,10 @@ const syntax = {
     '$onBanAdd',
     '$onBanRemove',
     '$onMessageDelete',
-    '$onInteraction'
-  ]),
-
-  'bds-premium-callback': regex([
+    '$onInteraction',
     '$alwaysReply',
     '$messageContains',
     '$reaction'
-  ]),
-
-  'bds-premium-function': regex([
-    '$awaitReactions',
-    '$customImage',
-    '$sendNotification',
-    '$usedEmoji',
-    '$ignoreTriggerCase'
   ]),
 
   'bds-deprecated': regex([
@@ -67,7 +56,7 @@ const syntax = {
     '$httpStatus'
   ]),
 
-  'bds-misc': regex([
+  'function': regex([
     '$optOff',
     '$tts',
     '$changeCooldownTime',
@@ -79,7 +68,14 @@ const syntax = {
     '$unescape',
     '$ignoreLinks',
     '$trimContent',
-    '$disableInnerSpaceRemoval'
+    '$disableInnerSpaceRemoval',
+    '$nomention',
+    '$sendNotification',
+    '$ignoreTriggerCase',
+    '$customImage',
+    '$newTicket',
+    '$closeTicket',
+    '$botTyping'
   ]),
 
   'bds-user': regex([
@@ -354,13 +350,12 @@ const syntax = {
     '$botListHide'
   ]),
 
-  'bds-nomention': /\$nomention/,
-
   'bds-reaction': regex([
     '$addReactions',
     '$addCmdReactions',
     '$clearReactions',
-    '$getReactions'
+    '$getReactions',
+    '$awaitReactions'
   ]),
 
   'bds-count': regex([
@@ -445,12 +440,8 @@ const syntax = {
 
   'bds-emoji': regex([
     '$customEmoji',
-    '$addEmoji'
-  ]),
-
-  'bds-ticket': regex([
-    '$newTicket',
-    '$closeTicket'
+    '$addEmoji',
+    '$usedEmoji'
   ]),
 
   'bds-error': regex([
@@ -486,7 +477,6 @@ const syntax = {
     '$allowMention',
     '$allowUserMentions',
     '$allowRoleMentions',
-    '$botTyping',
     '$reply'
   ]),
 
@@ -502,7 +492,7 @@ const syntax = {
     '$url'
   ]),
 
-  'bds-variable': regex([
+  'variable': regex([
     '$var',
     '$setVar',
     '$setChannelVar',

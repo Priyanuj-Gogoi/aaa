@@ -1,11 +1,16 @@
-const { light, dark } = require('./src/theme/CodeTheme');
-
 const webpack = require('webpack');
 
+const {
+  light: theme,
+  dark: darkTheme
+} = require('./src/theme/CodeTheme');
+ 
 // Netlify built-in variables
-const github = process.env.REPOSITORY_URL;
-const url = process.env.URL;
-const branch = process.env.BRANCH;
+const {
+  REPOSITORY_URL: github,
+  URL: url,
+  BRANCH: branch
+} = process.env;
 
 const config = {
   title: 'BDFD Docs',
@@ -67,8 +72,8 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} Priyanuj Gogoi<br>Built using Docusaurus`,
     },
     prism: {
-      theme: light,
-      darkTheme: dark,
+      theme,
+      darkTheme,
       magicComments: [
         {
           className: 'theme-code-block-highlighted-line',
@@ -187,7 +192,6 @@ const config = {
           return {
             resolve: {
               fallback: {
-                stream: require.resolve('stream-browserify'),
                 buffer: require.resolve('buffer/'),
               },
             },
